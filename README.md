@@ -1,10 +1,11 @@
 <h1>mosc后台</h1>
-<p>环境配置</p>
+<p><b>环境配置<b></p>
 <div>
   <ul>
     <li>node.js 后台程序运行语言</li>
     <li>monogodb 后台数据库</li>
   </ul>
 </div>
-<p>使用</p>
-<div>下载全部文件，</div>
+<p><b>window使用</b></p>
+<div>下载全部文件，打开cmd，找到项目根目录，输入以下命令：</div>
+<pre>mpn install</pre>

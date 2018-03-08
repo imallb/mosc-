@@ -6,6 +6,8 @@
     <li>monogodb 后台数据库</li>
   </ul>
 </div>
-<p><b style="color:#0366d6;">window使用</b></p>
-<div>下载全部文件，打开cmd，找到项目根目录，输入以下命令：</div>
+<p><b>window使用</b></p>
+<div>下载全部文件，打开cmd，找到项目根目录，输入以下命令安装模块：</div>
 <pre>mpn install</pre>
+
+<div></div>

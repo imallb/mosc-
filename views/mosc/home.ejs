@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<link href="/layui/css/layui.css" rel="stylesheet" type="text/css">
+<link href="/layuiUse/css/main.css" rel="stylesheet" type="text/css">
+<script src="/layui/layui.js"></script>
+
+</head>
+
+<body class="homebody">
+<!--show data-->
+<div class="datas">
+	<ul>
+		<li>
+        	<span style="background:#54ADE8;"><i class="layui-icon">&#xe64a;</i></span>
+            <p><em class="allUser"></em>用户总数</p>
+        </li>
+        <li>
+        	<span style="background:#FF5722;"><i class="layui-icon">&#xe612;</i></span>
+            <p><em class="column"></em>栏目总数</p>
+        </li>
+        <li>
+        	<span style="background:#009688;"><i class="layui-icon">&#xe613;</i></span>
+            <p><em class="allArticle"></em>文章总数</p>
+        </li>
+        <li>
+        	<span style="background:#5FB878;"><i class="layui-icon">&#xe621;</i></span>
+            <p><em class="readColumn"></em>待审核栏目</p>
+        </li>
+        <li>
+        	<span style="background:#F7B824;"><i class="layui-icon">&#xe6b2;</i></span>
+            <p><em class="readArticle"></em>待审核文章</p>
+        </li>
+        <li>
+        	<span style="background:#2F4056;"><i class="layui-icon">&#xe630;</i></span>
+            <p><em class="message">0</em>留言总数</p>
+        </li>
+    </ul>
+</div>
+<!--explain-->
+<blockquote class="layui-elem-quote explain">
+	<p>使用node.js作为后台程序语言，layui前端框架制作一个后台操作系统。</p>
+</blockquote>
+<!--log && new-->
+<div class="row">
+	<div class="row_l">
+    	<div class="layui-elem-quote title">网站更新日志</div>
+        <div class="layui-elem-quote layui-quote-nm logs">
+		</div>
+    </div>
+    <div class="row_r">
+    	<div class="layui-elem-quote title">网站信息</div>
+        <table class="layui-table">
+            <colgroup><col width="150"><col></colgroup>
+            <tbody>
+                <tr>
+                    <td align="left">模版</td>
+                    <td align="left"><%= system.views %></td>
+                </tr>
+                <tr>
+                    <td align="left">网站域名</td>
+                    <td align="left"><%= web.website %></td>
+                </tr>
+				<tr>
+                    <td align="left">网站IP</td>
+                    <td align="left"><%= web.ip %></td>
+                </tr>
+                <tr>
+                    <td align="left">服务器环境</td>
+                    <td align="left"><%= system.server %></td>
+                </tr>
+                <tr>
+                    <td align="left">数据库</td>
+                    <td align="left">mongodb</td>
+                </tr>
+                <tr>
+                    <td align="left">后台编程语言</td>
+                    <td align="left">node.js <%= system.version %></td>
+                </tr>
+                <tr>
+                    <td align="left">数据表</td>
+                    <td align="left"><%= system.dataTable %></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="layui-elem-quote title">最新文章</div>
+        <table class="layui-table" lay-skin="line">
+            <colgroup><col><col width="110"></colgroup>
+            <tbody class="hot_news">
+                <% post.forEach(function(post){ %>
+					<tr>
+						<td><%= post.title %></td>
+						<td><%= post.created_at %></td>
+					</tr>
+				<% }) %>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<script src="/layuiUse/js/home.js"></script>
+</body>
+</html>

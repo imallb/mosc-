@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<link href="/layui/css/layui.css" rel="stylesheet" type="text/css">
+<script src="/layui/layui.js"></script>
+<style>
+table.layui-table{
+	margin-bottom:15px;
+}
+table.layui-table thead th{
+	background:#393D49;
+	color:white;
+}
+</style>
+</head>
+
+<body style="padding:10px 20px 20px;">
+<table class="layui-table">
+	<colgroup>
+		<col width="20%">
+		<col width="50%">
+		<col>
+	</colgroup>
+	<thead>
+		<tr>
+			<th>系统参数说明</th>
+			<th>参数值</th>
+			<th>变量名</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>服务器环境</td>
+			<td><input type="text" class="layui-input" value="<%= post.system.server %>" readonly></td>
+			<td>server</td>
+		</tr>
+		<tr>
+			<td>数据库版本</td>
+			<td><input type="text" class="layui-input" value="<%= post.system.dataBase %>" readonly></td>
+			<td>dataBase</td>
+		</tr>
+		<tr>
+			<td>数据表</td>
+			<td><input type="text" class="layui-input" value="<%= post.system.dataTable %>" readonly></td>
+			<td>dataTable</td>
+		</tr>
+		<tr>
+			<td>模版名称</td>
+			<td><input type="text" class="layui-input" value="<%= post.system.views %>" readonly></td>
+			<td>views</td>
+		</tr>
+		<tr>
+			<td>后台编程语言</td>
+			<td><input type="text" class="layui-input" value="node.js <%= post.system.version %>" readonly></td>
+			<td>version</td>
+		</tr>
+		<tr>
+			<td>后台安装包</td>
+			<td>
+				<textarea placeholder="请输入网站描述" class="layui-textarea" readonly><% for(var i in post.system.bag){ %><%= i+'  '+post.system.bag[i].replace('^','v')+'\n' %><% } %></textarea>
+			</td>
+			<td>bag</td>
+		</tr>
+	</tbody>
+</table>
+<form class="layui-form" action="/mosc/system" method="post">
+	<table class="layui-table">
+		<colgroup>
+			<col width="20%">
+			<col width="50%">
+			<col>
+		</colgroup>
+		<thead>
+			<tr>
+				<th>网站参数说明</th>
+				<th>参数值</th>
+				<th>变量名</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>网站域名</td>
+				<td><input type="text" class="layui-input" placeholder="域名" name="website" value="<%= post.web.website %>"></td>
+				<td>website</td>
+			</tr>
+			<tr>
+				<td>网站ip地址</td>
+				<td><input type="text" class="layui-input" placeholder="ip地址" name="ip" value="<%= post.web.ip %>"></td>
+				<td>ip</td>
+			</tr>
+			<tr>
+				<td>FTP</td>
+				<td><input type="text" class="layui-input" placeholder="ftp" name="ftp" value="<%= post.web.ftp %>"></td>
+				<td>ftp</td>
+			</tr>
+			<tr>
+				<td>网站关键字</td>
+				<td><input type="text" class="layui-input" placeholder="请输入默认关键字" name="key" value="<%= post.web.key %>"></td>
+				<td>key</td>
+			</tr>
+			<tr>
+				<td>网站描述</td>
+				<td><textarea placeholder="请输入网站描述" class="layui-textarea" name="paper"><%= post.web.paper %></textarea></td>
+				<td>paper</td>
+			</tr>
+			<tr>
+				<td>网站备案号</td>
+				<td><input type="text" class="layui-input" placeholder="请输入网站备案号" name="record" value="<%= post.web.record %>"></td>
+				<td>record</td>
+			</tr>
+			<tr>
+				<td>版权信息</td>
+				<td><input type="text" class="layui-input" placeholder="请输入网站版权信息" name="powerby" value="<%= post.web.powerby %>"></td>
+				<td>powerby</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="layui-form-item" style="text-align: right;">
+		<div class="layui-input-block">
+			<input class="layui-btn" type="submit" value="立即提交">
+			<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+		</div>
+	</div>
+</form>
+
+</body>
+</html>

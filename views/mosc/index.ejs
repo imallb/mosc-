@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>mosc</title>
+<link href="/favicon.ico" type="image/x-icon" rel="shortcut icon">
+<link href="/layui/css/layui.css" rel="stylesheet" type="text/css">
+<link href="/layuiUse/css/main.css" rel="stylesheet" type="text/css">
+<script src="/layui/layui.js"></script>
+</head>
+
+<body>
+<div class="layui-layout layui-layout-admin">
+	<div class="layui-header">
+    	<a href="#" class="logo">MOSC后台管理</a>
+        <!-- 天气信息 -->
+        <div class="weather">
+            <div id="tp-weather-widget" class="xc"></div>
+			<script src="js/weather.js"></script>
+        </div>
+
+        <div class="adminxx layui-nav">
+        	<div class="layui-nav-item">
+            	<a href="javascript:;">
+                	<img src="face.jpg" width="35" height="35" class="layui-circle pr5"><cite><%= user_name %></cite>
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a href="/mosc/loginout"><i class="layui-icon pr5">&#x1007;</i><cite>退出</cite></a></dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+	<div class="layui-side layui-bg-black" id="left-nav">
+        <ul class="layui-nav layui-nav-tree" lay-filter="test">
+            <li class="layui-nav-item layui-this"><a href="javascript:;" data-url="/mosc/home"><i class="layui-icon pr5">&#xe68e;</i>首页信息</a></li>
+            <li class="layui-nav-item"><a href="javascript:;" data-url="/mosc/column"><i class="layui-icon pr5">&#xe60a;</i>文章管理</a></li>
+			<li class="layui-nav-item"><a href="javascript:;" data-url="/mosc/user_list"><i class="layui-icon pr5">&#xe613;</i>用户管理</a></li>
+            <li class="layui-nav-item"><a href="javascript:;" data-url="/mosc/views"><i class="layui-icon pr5">&#xe635;</i>后台模版</a></li>
+            <li class="layui-nav-item"><a href="javascript:;" data-url="/mosc/system"><i class="layui-icon pr5">&#xe631;</i>系统基本参数</a></li>
+			<li class="layui-nav-item"><a href="javascript:;" class="clearCookie"><i class="layui-icon pr5">&#xe614;</i>清除缓存</a></li>
+        </ul>
+    </div>
+    <!-- 右侧内容 -->
+    <div class="layui-body layui-form iframes">
+        <div class="clildFrame">
+            <div class="layui-tab-item layui-show">
+                <iframe src="/mosc/home"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/layuiUse/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<link href="/layui/css/layui.css" rel="stylesheet" type="text/css">
+<script src="/layui/layui.js"></script>
+</head>
+
+<body>
+<span>点我</span>
+<script>
+layui.use(['jquery'],function(){
+	var $ = layui.jquery;
+	
+	$('span').click(function(){
+		$.get('/mosc/column/delete?postId=5a9c9f61fb561721401a138b',function(data){
+			alert(0)
+		})
+	})
+	
+})
+</script>
+
+</body>
+</html>

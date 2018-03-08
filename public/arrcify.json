@@ -1,0 +1,17 @@
+{
+"arrcify":{
+	"html": "html",
+	"javascript": "javascript",
+	"jquery": "jquery",
+	"css/css3": "css",
+	"nodejs": "nodejs",
+	"mongodb": "mongodb",
+	"php": "php",
+	"ajax": "ajax",
+	"apache": "apache",
+	"Xshell": "xshell",
+	"centos": "centos",
+	"pc端": "window",
+	"移动端": "phone"
+}
+}

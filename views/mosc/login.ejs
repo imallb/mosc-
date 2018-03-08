@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<link href="/layui/css/layui.css" rel="stylesheet" type="text/css">
+<script src="/layui/layui.js"></script>
+<style>
+.login{
+	width:500px;
+	overflow:hidden;
+	margin:0 auto;
+	padding:20px;
+	border-radius:10px;
+	box-shadow:0 0 8px #ccc;
+}
+.layui-form-label{
+	width:auto;
+}
+.layui-input-block{
+	margin-left:90px;
+}
+</style>
+</head>
+
+<body>
+<div class="login">
+    <form class="layui-form" action="/mosc/login" method="post">
+        <div class="layui-form-item">
+            <label class="layui-form-label"><b>用户名：</b></label>
+            <div class="layui-input-block">
+                <input type="text" name="users" placeholder="请输入用户名" class="layui-input">
+            </div>
+        </div> 
+        <div class="layui-form-item">
+            <label class="layui-form-label"><b>密　码：</b></label>
+            <div class="layui-input-block">
+                <input type="password" name="password" placeholder="请输入密码" class="layui-input">
+            </div>
+        </div>
+        <div class="btn_box">
+            <button class="layui-btn layui-btn-big" lay-submit lay-filter="sub">提交</button>
+        </div>
+    </form>
+</div>
+<script>
+layui.use(['form','upload','jquery'],function(){
+	var $ = layui.jquery,
+		form = layui.form;
+		
+	form.on('submit(sub)', function(data){
+		if(data.field.users==''){
+			$('[name=users]').focus();
+			layer.msg('用户名不能为空！');
+			return false;
+		};
+		if(data.field.password==''){
+			$('[name=password]').focus();
+			layer.msg('密码不能为空！');
+			return false;
+		};
+	});
+	
+});
+</script>
+</body>
+</html>

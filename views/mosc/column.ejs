@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<link href="/layui/css/layui.css" rel="stylesheet" type="text/css">
+<link href="/layuiUse/css/main.css" rel="stylesheet" type="text/css">
+<script src="/layui/layui.js"></script>
+</head>
+
+<body class="homebody">
+<!--explain-->
+<blockquote class="layui-elem-quote button">
+    <div class="layui-input-inline search">
+        <input type="text" value="" placeholder="请输入关键字" class="layui-input">
+        <i class="layui-icon">&#xe615;</i>
+    </div>
+    <a class="layui-btn layui-bg-blue" id="ceart_col" href='javascript:;'>添加栏目</a>
+    <a class="layui-btn layui-btn-danger" id="deleted" href='javascript:;'>批量删除栏目</a>
+</blockquote>
+
+<div class="column">
+	<form class="layui-form" action="">
+		<table class="layui-table" align="center">
+			<colgroup>
+			<col width="50">
+			<col>
+			<col width="10%">
+			<col width="10%">
+			<col width="10%">
+			<col width="12%">
+			<col>
+			</colgroup>
+			<thead>
+				<tr>
+					<th><input type="checkbox" name="" lay-skin="primary" lay-filter="allChoose" id="allChoose"></th>
+					<th style="text-align:left;">文章标题</th>
+					<th>发布人</th>
+					<th>状态</th>
+					<th>创建时间</th>
+					<th>操作</th>
+				</tr> 
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</form>
+    <div id="demo1" list='<%= post.list %>' limit='<%= post.limit %>' page='<%= post.page %>'></div>
+</div>
+<%- include('module/column_editor') %>
+
+<script>
+var user = "<%= user._id %>";
+</script>
+<script src="/layuiUse/js/column.js"></script>
+</body>
+</html>

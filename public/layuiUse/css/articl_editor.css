@@ -1,0 +1,131 @@
+body{ 
+	padding:10px 10px 80px;
+}
+.layui-form-label i{
+	color:red;
+	float:left;
+}
+.btn_box{
+	position:fixed;
+	width:100%;
+	padding:15px 0;
+	background:white;
+	left:0;
+	bottom:0;
+	z-index:99999999;
+	text-align:left;
+	box-shadow:0 0 8px #ccc;
+}
+.btn_box_k{
+	padding-left:110px;
+}
+.btn_box button{
+	margin:0 10px !important;
+}
+.cfig{
+	height:31px !important;
+	line-height:31px !important;
+	margin-top:3px;
+}
+#demo1{
+	width:100%;
+	height:100%;
+}
+.layui-upload-list{
+	position:relative;
+	width:300px;
+	height:200px;
+}
+#demoText{
+	position:absolute;
+	width:100%;
+	height:100%;
+	left:0;
+	top:0;
+	background:rgba(0,0,0,0.4);
+	text-align:center;
+	color:white;
+	display:none;
+	line-height:200px;
+	font-size:16px;
+}
+
+.ed_classify{
+	position:fixed;
+	width:100%;
+	height:100%;
+	background:rgba(0,0,0,0.8);
+	left:0;
+	top:0;
+	z-index:999999999;
+	display:none;
+}
+.classify{
+	width:470px;
+	height:320px;
+	border-radius:10px;
+	background:white;
+	padding:40px;
+	position:fixed;
+	left:50%;
+	top:50%;
+	z-index:99999;
+	margin-left:-290px;
+	margin-top:-220px;
+	overflow:hidden;
+}
+.classify h3{
+	font-size:24px;
+	font-weight:bold;
+	color:#009688;
+	margin-bottom:10px;
+	padding-bottom:10px;
+	overflow:hidden;
+	border-bottom:1px solid #ccc;
+}
+.classify p{
+	margin-bottom:10px;
+}
+.classify ul{
+	width:480px;
+	display:block;
+	overflow:hidden;
+	margin-bottom:15px;
+	height:180px;
+}
+.classify li{
+	float:left;
+	width:110px;
+	margin-right:10px;
+	margin-bottom:10px;
+}
+.classify li .layui-form-checkbox{
+	float:left;
+	margin-right:7px;
+}
+.classify li label{
+	float:left;
+	line-height:18px;
+}
+.classify_btn{
+	overflow:hidden;
+}
+.classify a{
+	width:60px;
+	height:36px;
+	border-radius:5px;
+	text-align:center;
+	line-height:36px;
+	float:left;
+	margin-right:10px;
+	cursor:pointer;
+}
+.classify a.c_ok{
+	border:1px solid #009688;
+	color:white;
+	background:#009688;
+}
+.classify a.c_qx{
+	border:1px solid #ccc;
+	background:#e9e9e9;
+}

@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<link href="/layui/css/layui.css" rel="stylesheet" type="text/css">
+<link href="/layuiUse/css/articl_editor.css" rel="stylesheet" type="text/css">
+<script src="/layui/layui.js"></script>
+<style>
+body{
+	padding-top:70px;
+}
+.topbtn{
+	width:100%;
+	position:fixed;
+	border-top:5px solid #009688;
+	left:0;
+	top:0;
+	background:white;
+	box-shadow:0 0 8px #ccc;
+	z-index:99999999;
+}
+.topbtn a{
+	float:left;
+	padding:15px 20px;
+	font-size:14px;
+	color:#333;
+	border-right:1px solid #ccc;
+	line-height:16px;
+}
+.topbtn a i{
+	padding-right:10px;
+}
+</style>
+</head>
+
+<body>
+<div class="topbtn">
+	<a href="/mosc/article_list"><i class="layui-icon">&#xe65a;</i>返回</a>
+</div>
+<form class="layui-form" action="/mosc/article_editor/<%= post._id %>" method="post">
+	<input type="hidden" value="<%= post.column %>" name="column">
+    <div class="layui-form-item">
+        <label class="layui-form-label"><i>*</i><b>文章标题：</b></label>
+        <div class="layui-input-block">
+        	<input type="text" name="title" placeholder="请输入标题" class="layui-input" value="<%= post.title %>">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"></label>
+        <div class="layui-input-block">
+			<% if( post.read[0]=='on' ){ %>
+        		<input type="checkbox" name="read[]" title="审核" checked>
+			<% }else{ %>
+				<input type="checkbox" name="read[]" title="审核">
+			<% } %>
+            <a class="layui-btn layui-btn-primary cfig">文章分类</a>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"><i>*</i><b>关键字：</b></label>
+        <div class="layui-input-block">
+        	<input type="text" name="key" placeholder="请输入关键字" class="layui-input" value="<%= post.key %>">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"><!--<i>*</i>--><b>文章摘要：</b></label>
+        <div class="layui-input-block">
+        	<textarea class="layui-textarea" placeholder="请输入文章摘要" name="paper"><%= post.paper %></textarea>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"><i>*</i><b>文章编辑：</b></label>
+        <div class="layui-input-block">
+        	<script id="editor" type="text/plain" style="width:100%;height:500px;"><%- post.content %></script>
+			<textarea style="display:none;" name="content"></textarea>
+        </div>
+    </div>
+    <div class="btn_box">
+    	<div class="btn_box_k">
+			<button class="layui-btn layui-btn-big" lay-submit lay-filter="sub">提交文章</button>
+            <button type="reset" class="layui-btn layui-btn-primary layui-btn-big">重置</button>
+        </div>
+    </div>
+</form>
+<script src="/ueditor/ueditor.config.js"></script>
+<script src="/ueditor/ueditor.all.min.js"></script>
+<script src="/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script>
+//实例化编辑器
+//建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+var ue = UE.getEditor('editor');
+var cify = "<%= post.classify %>".split(",");
+</script>
+
+<script src="/layuiUse/js/articl_change.js"></script>
+</body>
+</html>

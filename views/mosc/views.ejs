@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<link href="/layui/css/layui.css" rel="stylesheet" type="text/css">
+<script src="/layui/layui.js"></script>
+<style>
+.layui-table a{
+	display:block;
+	width:100%;
+}
+.layui-table img{
+	width:20px;
+}
+</style>
+</head>
+
+<body style="padding:20px;">
+<div class="layui-breadcrumb">
+<% for(var i=1;i<file.split('/').length;i++){ %>
+	<% if( i==file.split('/').length - 1 ){ %>
+		<a ><cite><%= file.split('/')[i] %></cite></a>
+	<% }else{ %>
+		<a href="/mosc/views?url=<%= url.match(new RegExp('([\/\w]+|\/)'+file.split('/')[i],'g')) %>"><%= file.split('/')[i] %></a>
+	<% } %>
+<% } %>
+</div>
+<div class="article_list">
+	<table class="layui-table" align="center">
+		<colgroup>
+		<col>
+		<col width="15%">
+		<col>
+		</colgroup>
+		<thead>
+			<tr>
+				<th style="text-align:left;">模版名称</th>
+				<th>修改时间</th>
+			</tr> 
+		</thead>
+		<tbody>
+		<% for(var i in post){ %>
+		<tr>
+			<td>
+				<% if(!/\./.test(i)){ %>
+					<a href="/mosc/views?url=<%= url %>/<%= i %>">
+						<img src="/layuiUse/images/folders.png">
+						<%= i %>
+					</a>
+				<% }else{ %>
+					<a href="/mosc/template?url=<%= url %>/<%= i %>">
+						<img src="/layuiUse/images/file.png">
+						<%= i %>
+					</a>
+				<% } %>
+			</td>
+			<td><%= post[i] %></td>
+		</tr>
+		<% } %>
+		</tbody>
+	</table>
+
+</div>
+<script>
+layui.use('element');
+</script>
+</body>
+</html>

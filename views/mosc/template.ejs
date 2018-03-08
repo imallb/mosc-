@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<link href="/layui/css/layui.css" rel="stylesheet" type="text/css">
+<script src="/layui/layui.js"></script>
+<style>
+body{
+	padding:70px 20px 20px;
+	background:#f7f7f7;
+}
+.layui-textarea{
+	height:500px;
+	background:white;
+}
+.topbtn{
+	width:100%;
+	position:fixed;
+	border-top:5px solid #009688;
+	left:0;
+	top:0;
+	background:white;
+	box-shadow:0 0 8px #ccc;
+	z-index:9999999;
+}
+.topbtn a{
+	float:left;
+	padding:15px 20px;
+	font-size:14px;
+	color:#333;
+	border-right:1px solid #ccc;
+	line-height:16px;
+}
+.topbtn a i{
+	padding-right:10px;
+}
+</style>
+</head>
+
+<body>
+	<div class="topbtn">
+		<a href="/mosc/views?url=<%= url.replace(/^(\/views)/,'').replace(/(\/[\.\w]+)$/,'') %>"><i class="layui-icon">&#xe65a;</i>返回</a>
+	</div>
+	<form class="layui-form" action="/mosc/template" method="post">
+		<div class="layui-form-item">
+			<input type="text" name="path" value="<%= url %>" class="layui-input" readonly>
+		</div>
+		<div class="layui-form-item">
+			<textarea class="layui-textarea description" name="text" ><%= post %></textarea>
+			<script>
+				var _id = '<%= user._id %>';
+				if( _id!='admin' ){
+					document.getElementsByTagName('textarea')[0].setAttribute('readonly', true);
+				};
+			</script>
+		</div>
+		<div class="layui-form-item">
+			<input class="layui-btn" type="submit" value="立即提交">
+			<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+		</div>
+	</form>
+</body>
+</html>

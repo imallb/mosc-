@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<link href="/layui/css/layui.css" rel="stylesheet" type="text/css">
+<link href="/layuiUse/css/main.css" rel="stylesheet" type="text/css">
+<script src="/layui/layui.js"></script>
+</head>
+
+<body class="homebody">
+<% if( user._id=='admin' ){ %>
+	<!--explain-->
+	<blockquote class="layui-elem-quote button">
+		<div class="layui-input-inline search">
+			<input type="text" value="" placeholder="请输入关键字" class="layui-input">
+			<i class="layui-icon">&#xe615;</i>
+		</div>
+		<a class="layui-btn layui-btn-danger" id="deleted" href='/mosc/user_list'>删除用户</a>
+	</blockquote>
+	
+	<div class="article_list">
+		<form class="layui-form" action="">
+			<table class="layui-table" align="center">
+				<colgroup>
+				<col width="50">
+				<col>
+				<col width="13%">
+				<col width="13%">
+				<col>
+				</colgroup>
+				<thead>
+					<tr>
+						<th><input type="checkbox" name="" lay-skin="primary" lay-filter="allChoose" id="allChoose"></th>
+						<th style="text-align:left;">用户名</th>
+						<th>权限</th>
+						<th>申请时间</th>
+					</tr> 
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</form>
+		<div id="demo1" page='<%= post.list %>' limit='<%= post.limit %>'></div>
+	</div>
+	<script src="/layuiUse/js/user_list.js"></script>
+<% }else{ %>
+	<p>你的权限不足以浏览用户信息</p>
+<% } %>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<link href="/layui/css/layui.css" rel="stylesheet" type="text/css">
+<link href="/layuiUse/css/main.css" rel="stylesheet" type="text/css">
+<script src="/layui/layui.js"></script>
+<style>
+body{
+	padding-top:60px;
+}
+.topbtn{
+	width:100%;
+	position:fixed;
+	border-top:5px solid #009688;
+	left:0;
+	top:0;
+	background:white;
+	box-shadow:0 0 8px #ccc;
+	z-index:99999999;
+}
+.topbtn .back{
+	float:left;
+	padding:15px 20px;
+	font-size:14px;
+	color:#333;
+	border-right:1px solid #ccc;
+	line-height:16px;
+}
+.topbtn .back i{
+	padding-right:10px;
+}
+.topbtn .caozuo{
+	float:right;
+	padding-right:10px;
+	margin-top:7px;
+}
+.topbtn .caozuo a{
+	height: 34px;
+	line-height: 34px;
+	padding: 0 10px;
+	font-size: 12px;
+}
+</style>
+</head>
+
+<body class="homebody">
+<div class="topbtn">
+	<a href="/mosc/column?page=<%= post.page %>" class="back"><i class="layui-icon">&#xe65a;</i>返回</a>
+	<div class="caozuo">
+		<div class="layui-btn-group">
+			<a class="layui-btn layui-btn-sm" href='javascript:;' id="ceart_col">
+				<i class="layui-icon">&#xe609;</i> 发布项目
+			</a>
+			<a class="layui-btn layui-btn-sm" href="/mosc/article_editor?column=<%= post.column._id %>">
+				<i class="layui-icon">&#xe654;</i> 添加文章
+			</a>
+			<a class="layui-btn layui-btn-sm" href='javascript:;' id="deleted">
+				<i class="layui-icon">&#xe640;</i> 批量删除
+			</a>
+		</div>	
+	</div>
+</div>
+<!--explain-->
+<blockquote class="layui-elem-quote button">
+	<p class="columntitle"><%= post.column.title %></p>
+</blockquote>
+
+<div class="article_list">
+	<form class="layui-form" action="">
+		<table class="layui-table" align="center">
+			<colgroup>
+			<col width="50">
+			<col>
+			<col width="10%">
+			<col width="10%">
+			<col width="12%">
+			<col>
+			</colgroup>
+			<thead>
+				<tr>
+					<th><input type="checkbox" name="" lay-skin="primary" lay-filter="allChoose" id="allChoose"></th>
+					<th style="text-align:left;">文章标题</th>
+					<th>状态</th>
+					<th>创建时间</th>
+					<th>操作</th>
+				</tr> 
+			</thead>
+			<tbody>
+				<% post.data.forEach(function(data, i){ %>
+					<tr>
+						<td><input type="checkbox" name="checklist[]" lay-skin="primary" lay-filter="checklist" class="checklist" value="<%= data._id %>"></td>
+						<td align="left"><%= data.title %></td>
+						<td><%= (data.read[0]=='on')?'审核中':'已通过' %></td>
+						<td><%= data.created_at %></td>
+						<td>
+							<a class="layui-btn layui-btn-mini news_edit" href="/mosc/article_editor/<%= data._id %>"><i class="layui-icon">&#xe642;</i>编辑</a>
+							<a onclick="layer.load(2);" class="layui-btn layui-btn-mini layui-bg-red news_clear" href="/mosc/article_list/delete?id=<%= data._id %>"><i class="layui-icon">&#xe640;</i>删除</a>
+						</td>
+					</tr>
+				<% }) %>
+			</tbody>
+		</table>
+	</form>
+</div>
+
+<%- include('module/column_editor') %>
+
+<script src="/layuiUse/js/articl_list.js"></script>
+</body>
+</html>

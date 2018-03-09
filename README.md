@@ -6,7 +6,6 @@
     <li>mongodb 后台数据库</li>
   </ul>
 </div>
-<br>
 <h3>node.js在window安装</h3>
 <div>在浏览器打开node官网<a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a>下载window二进制版本（.msi），下载完成后，双击点开按提示逐步完成。</div>
 <br>

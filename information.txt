@@ -2,16 +2,16 @@
 
   website: "www.imallb.com",
 
-  ip: "127.0.0.1",
+  ip: "67.216.222.137",
 
-  ftp: "111111",
+  ftp: "",
 
-  key: "我是一只小小鸟",
+  key: "",
 
-  paper: "我是一只小小鸟怎么飞呀飞不高。。。。。",
+  paper: "",
 
-  record: "去你妈的备案",
+  record: "",
 
-  powerby: "没有滚"
+  powerby: "一只小小鸟"
 
 }

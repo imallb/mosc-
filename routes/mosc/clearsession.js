@@ -8,7 +8,7 @@ var Session = require('../../lib/mongo').Session;
 router.get('/', function(req, res, next){
 	
 	var author = req.session.user._id;
-	/*var date = req.session.date;
+	var date = req.session.date;
 	var dir = path.join(__dirname, '../../logs');
 	var files = {};
 	files.success = fs.readdirSync(dir+'/success');
@@ -21,7 +21,7 @@ router.get('/', function(req, res, next){
 				fs.unlinkSync(filedir);
 			}
 		});
-	};*/
+	};
 	
 	Session.find().sort({ _id: -1 }).exec()
 		.then(function(post){

@@ -1,0 +1,20 @@
+ [ 2018-10-02 17:07:58 ] error: /index/share/5bb328163253f6223440a351?page=1&limit=8
+ [ 2018-10-02 17:07:58 ] brower: mozilla/5.0 (windows nt 10.0; wow64) applewebkit/537.36 (khtml, like gecko) chrome/63.0.3239.132 safari/537.36
+ [ 2018-10-02 17:07:58 ] err: ReferenceError: list is not defined
+
+ [ 2018-10-02 17:10:02 ] error: /index/share/5bb328163253f6223440a351?page=1&limit=8
+ [ 2018-10-02 17:10:02 ] brower: mozilla/5.0 (windows nt 10.0; wow64) applewebkit/537.36 (khtml, like gecko) chrome/63.0.3239.132 safari/537.36
+ [ 2018-10-02 17:10:02 ] err: ReferenceError: Post is not defined
+
+ [ 2018-10-02 20:35:12 ] error: /index
+ [ 2018-10-02 20:35:12 ] brower: mozilla/5.0 (windows nt 10.0; wow64) applewebkit/537.36 (khtml, like gecko) chrome/63.0.3239.132 safari/537.36
+ [ 2018-10-02 20:35:12 ] err: Error: C:\Users\moshangcheng\Desktop\mosc\views\index.ejs:45
+    43| </div>
+    44| 
+ >> 45| <%- include('module/head') %>
+    46| 
+    47| <script>
+    48| //注意：选项卡 依赖 element 模块，否则无法进行功能性操作
+
+Could not find the include file "module/head"
+

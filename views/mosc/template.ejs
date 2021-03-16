@@ -1,10 +1,4 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title></title>
-<link href="/layui/css/layui.css" rel="stylesheet" type="text/css">
-<script src="/layui/layui.js"></script>
+<%- include('module/head') %>
 <style>
 body{
 	padding:70px 20px 20px;
@@ -36,29 +30,43 @@ body{
 	padding-right:10px;
 }
 </style>
-</head>
 
 <body>
 	<div class="topbtn">
 		<a href="/mosc/views?url=<%= url.replace(/^(\/views)/,'').replace(/(\/[\.\w]+)$/,'') %>"><i class="layui-icon">&#xe65a;</i>返回</a>
 	</div>
-	<form class="layui-form" action="/mosc/template" method="post">
+	<form class="layui-form">
 		<div class="layui-form-item">
 			<input type="text" name="path" value="<%= url %>" class="layui-input" readonly>
 		</div>
 		<div class="layui-form-item">
-			<textarea class="layui-textarea description" name="text" ><%= post %></textarea>
-			<script>
-				var _id = '<%= user._id %>';
-				if( _id!='admin' ){
-					document.getElementsByTagName('textarea')[0].setAttribute('readonly', true);
-				};
-			</script>
+			<textarea class="layui-textarea description" name="text"><%= post %></textarea>
 		</div>
-		<div class="layui-form-item">
-			<input class="layui-btn" type="submit" value="立即提交">
+		<% if(user._id == 'admin' ){ %>
+		<div class="layui-form-item tobtn">
+			<input class="layui-btn" type="button" value="立即提交">
 			<button type="reset" class="layui-btn layui-btn-primary">重置</button>
 		</div>
+		<% } %>
 	</form>
+	<script>
+		layui.use(['jquery','layer'],function(){
+			var $ = layui.jquery;
+
+			<% if(user._id == 'admin' ){ %>
+				$('.tobtn input[type=button]').on('click',function(){
+					var post = {};
+					post.path = $('[name=path]').val();
+					post.text = $('[name=text]').val();
+					$.post('/mosc/template',post,function(data){
+						layer.msg(data.message);
+					});
+				})
+			<% }else{ %>
+				$('.description').attr('readonly', true);
+			<% } %>
+			
+		});
+	</script>
 </body>
 </html>

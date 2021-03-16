@@ -1,14 +1,8 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title></title>
-<link href="/layui/css/layui.css" rel="stylesheet" type="text/css">
+<%- include('module/head') %>
 <link href="/layuiUse/css/articl_editor.css" rel="stylesheet" type="text/css">
-<script src="/layui/layui.js"></script>
 <style>
 body{
-	padding-top:70px;
+	margin-top:70px;
 }
 .topbtn{
 	width:100%;
@@ -18,7 +12,7 @@ body{
 	top:0;
 	background:white;
 	box-shadow:0 0 8px #ccc;
-	z-index:99999999;
+	z-index:99;
 }
 .topbtn a{
 	float:left;
@@ -32,11 +26,10 @@ body{
 	padding-right:10px;
 }
 </style>
-</head>
 
 <body>
 <div class="topbtn">
-	<a href="/mosc/article_list"><i class="layui-icon">&#xe65a;</i>返回</a>
+	<a href="javascript:history.go(-1);"><i class="layui-icon">&#xe65a;</i>返回</a>
 </div>
 <form class="layui-form" action="/mosc/article_editor/<%= post._id %>" method="post">
 	<input type="hidden" value="<%= post.column %>" name="column">
@@ -54,7 +47,6 @@ body{
 			<% }else{ %>
 				<input type="checkbox" name="read[]" title="审核">
 			<% } %>
-            <a class="layui-btn layui-btn-primary cfig">文章分类</a>
         </div>
     </div>
     <div class="layui-form-item">
@@ -64,7 +56,7 @@ body{
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label"><!--<i>*</i>--><b>文章摘要：</b></label>
+        <label class="layui-form-label"><i>*</i><b>文章摘要：</b></label>
         <div class="layui-input-block">
         	<textarea class="layui-textarea" placeholder="请输入文章摘要" name="paper"><%= post.paper %></textarea>
         </div>
@@ -93,6 +85,6 @@ var ue = UE.getEditor('editor');
 var cify = "<%= post.classify %>".split(",");
 </script>
 
-<script src="/layuiUse/js/articl_change.js"></script>
+<script src="/layuiUse/js/articl_editor.js"></script>
 </body>
 </html>

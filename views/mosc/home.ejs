@@ -1,15 +1,7 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title></title>
-<link href="/layui/css/layui.css" rel="stylesheet" type="text/css">
-<link href="/layuiUse/css/main.css" rel="stylesheet" type="text/css">
-<script src="/layui/layui.js"></script>
-
-</head>
+<%- include('module/head') %>
 
 <body class="homebody">
+<link href="/layuiUse/css/main.css" rel="stylesheet" type="text/css">
 <!--show data-->
 <div class="datas">
 	<ul>
@@ -92,8 +84,8 @@
             <tbody class="hot_news">
                 <% post.forEach(function(post){ %>
 					<tr>
-						<td><%= post.title %></td>
-						<td><%= post.created_at %></td>
+						<td style="text-align:left;"><%= post.title %></td>
+						<td style="text-align:right;"><%= post.created_at.split(/\s/)[0] %></td>
 					</tr>
 				<% }) %>
             </tbody>

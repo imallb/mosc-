@@ -1,0 +1,132 @@
+ [ 2018-8-19 22:35:23 ] error: /index/5b796b91cbc3481b3c9ad8fc
+ [ 2018-8-19 22:35:23 ] brower: mozilla/5.0 (windows nt 10.0; wow64) applewebkit/537.36 (khtml, like gecko) chrome/55.0.2883.87 safari/537.36
+ [ 2018-8-19 22:35:23 ] err: TypeError: C:\Users\Administrator\Desktop\mosc\views\article.ejs:17
+    15| 	<div class="message">
+    16| 		<div class="logins">
+ >> 17| 			<% if(user.name!==undefined){ %>
+    18| 				<p>已登录</p>
+    19| 			<% }else{ %>
+    20| 				<p>未登录</p>
+
+Cannot read property 'name' of null
+
+ [ 2018-8-19 22:35:31 ] error: /index
+ [ 2018-8-19 22:35:31 ] brower: mozilla/5.0 (windows nt 10.0; wow64) applewebkit/537.36 (khtml, like gecko) chrome/55.0.2883.87 safari/537.36
+ [ 2018-8-19 22:35:31 ] err: TypeError: C:\Users\Administrator\Desktop\mosc\views\index.ejs:13
+    11| <body>
+    12| <div class="tit-left">
+ >> 13| 	<% if(user.name!==undefined){ %>
+    14| 		<div class="portrait">
+    15| 			<div class="photo"><img src="<%= user.photo %>"></div>
+    16| 			<div class="userText">
+
+Cannot read property 'name' of null
+
+ [ 2018-8-19 22:37:06 ] error: /index
+ [ 2018-8-19 22:37:06 ] brower: mozilla/5.0 (windows nt 10.0; wow64) applewebkit/537.36 (khtml, like gecko) chrome/55.0.2883.87 safari/537.36
+ [ 2018-8-19 22:37:06 ] err: TypeError: C:\Users\Administrator\Desktop\mosc\views\index.ejs:13
+    11| <body>
+    12| <div class="tit-left">
+ >> 13| 	<% if(user.name!==undefined){ %>
+    14| 		<div class="portrait">
+    15| 			<div class="photo"><img src="<%= user.photo %>"></div>
+    16| 			<div class="userText">
+
+Cannot read property 'name' of null
+
+ [ 2018-8-19 22:37:19 ] error: /index/5b796b91cbc3481b3c9ad8fc
+ [ 2018-8-19 22:37:19 ] brower: mozilla/5.0 (windows nt 10.0; wow64) applewebkit/537.36 (khtml, like gecko) chrome/55.0.2883.87 safari/537.36
+ [ 2018-8-19 22:37:19 ] err: TypeError: C:\Users\Administrator\Desktop\mosc\views\article.ejs:17
+    15| 	<div class="message">
+    16| 		<div class="logins">
+ >> 17| 			<% if(user.name!==undefined){ %>
+    18| 				<p>已登录</p>
+    19| 			<% }else{ %>
+    20| 				<p>未登录</p>
+
+Cannot read property 'name' of null
+
+ [ 2018-8-19 22:37:51 ] error: /index/5b796b91cbc3481b3c9ad8fc
+ [ 2018-8-19 22:37:51 ] brower: mozilla/5.0 (windows nt 10.0; wow64) applewebkit/537.36 (khtml, like gecko) chrome/55.0.2883.87 safari/537.36
+ [ 2018-8-19 22:37:51 ] err: TypeError: C:\Users\Administrator\Desktop\mosc\views\article.ejs:17
+    15| 	<div class="message">
+    16| 		<div class="logins">
+ >> 17| 			<% if(user.name!==undefined){ %>
+    18| 				<p>已登录</p>
+    19| 			<% }else{ %>
+    20| 				<p>未登录</p>
+
+Cannot read property 'name' of null
+
+ [ 2018-8-19 22:38:10 ] error: /index/5b796b91cbc3481b3c9ad8fc
+ [ 2018-8-19 22:38:10 ] brower: mozilla/5.0 (windows nt 10.0; wow64) applewebkit/537.36 (khtml, like gecko) chrome/55.0.2883.87 safari/537.36
+ [ 2018-8-19 22:38:10 ] err: TypeError: C:\Users\Administrator\Desktop\mosc\views\article.ejs:17
+    15| 	<div class="message">
+    16| 		<div class="logins">
+ >> 17| 			<% if(user.name!==undefined){ %>
+    18| 				<p>已登录</p>
+    19| 			<% }else{ %>
+    20| 				<p>未登录</p>
+
+Cannot read property 'name' of null
+
+ [ 2018-8-19 22:38:36 ] error: /index/5b796b91cbc3481b3c9ad8fc
+ [ 2018-8-19 22:38:36 ] brower: mozilla/5.0 (windows nt 10.0; wow64) applewebkit/537.36 (khtml, like gecko) chrome/55.0.2883.87 safari/537.36
+ [ 2018-8-19 22:38:36 ] err: TypeError: C:\Users\Administrator\Desktop\mosc\views\article.ejs:17
+    15| 	<div class="message">
+    16| 		<div class="logins">
+ >> 17| 			<% if(user.name!==undefined){ %>
+    18| 				<p>已登录</p>
+    19| 			<% }else{ %>
+    20| 				<p>未登录</p>
+
+Cannot read property 'name' of null
+
+ [ 2018-8-19 22:38:37 ] error: /index/5b796b91cbc3481b3c9ad8fc
+ [ 2018-8-19 22:38:37 ] brower: mozilla/5.0 (windows nt 10.0; wow64) applewebkit/537.36 (khtml, like gecko) chrome/55.0.2883.87 safari/537.36
+ [ 2018-8-19 22:38:37 ] err: TypeError: C:\Users\Administrator\Desktop\mosc\views\article.ejs:17
+    15| 	<div class="message">
+    16| 		<div class="logins">
+ >> 17| 			<% if(user.name!==undefined){ %>
+    18| 				<p>已登录</p>
+    19| 			<% }else{ %>
+    20| 				<p>未登录</p>
+
+Cannot read property 'name' of null
+
+ [ 2018-8-19 22:38:37 ] error: /index/5b796b91cbc3481b3c9ad8fc
+ [ 2018-8-19 22:38:37 ] brower: mozilla/5.0 (windows nt 10.0; wow64) applewebkit/537.36 (khtml, like gecko) chrome/55.0.2883.87 safari/537.36
+ [ 2018-8-19 22:38:37 ] err: TypeError: C:\Users\Administrator\Desktop\mosc\views\article.ejs:17
+    15| 	<div class="message">
+    16| 		<div class="logins">
+ >> 17| 			<% if(user.name!==undefined){ %>
+    18| 				<p>已登录</p>
+    19| 			<% }else{ %>
+    20| 				<p>未登录</p>
+
+Cannot read property 'name' of null
+
+ [ 2018-8-19 22:40:02 ] error: /index
+ [ 2018-8-19 22:40:02 ] brower: mozilla/5.0 (windows nt 10.0; wow64) applewebkit/537.36 (khtml, like gecko) chrome/55.0.2883.87 safari/537.36
+ [ 2018-8-19 22:40:02 ] err: TypeError: C:\Users\Administrator\Desktop\mosc\views\index.ejs:15
+    13| 	<% if(user==null){ %>
+    14| 		<div class="portrait">
+ >> 15| 			<div class="photo"><img src="<%= user.photo %>"></div>
+    16| 			<div class="userText">
+    17| 				<p><%= user.name %></p>
+    18| 				<p><a href="/mosc/loginout">退出</a></p>
+
+Cannot read property 'photo' of null
+
+ [ 2018-8-19 22:40:03 ] error: /index
+ [ 2018-8-19 22:40:03 ] brower: mozilla/5.0 (windows nt 10.0; wow64) applewebkit/537.36 (khtml, like gecko) chrome/55.0.2883.87 safari/537.36
+ [ 2018-8-19 22:40:03 ] err: TypeError: C:\Users\Administrator\Desktop\mosc\views\index.ejs:15
+    13| 	<% if(user==null){ %>
+    14| 		<div class="portrait">
+ >> 15| 			<div class="photo"><img src="<%= user.photo %>"></div>
+    16| 			<div class="userText">
+    17| 				<p><%= user.name %></p>
+    18| 				<p><a href="/mosc/loginout">退出</a></p>
+
+Cannot read property 'photo' of null
+

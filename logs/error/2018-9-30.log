@@ -1,0 +1,108 @@
+ [ 2018-9-30 15:46:35 ] error: /index
+ [ 2018-9-30 15:46:35 ] brower: mozilla/5.0 (windows nt 6.1; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/68.0.3440.106 safari/537.36
+ [ 2018-9-30 15:46:35 ] err: TypeError: E:\莫尚成\mosc\views\index.ejs:59
+    57| 	// 登录用户信息
+    58| 	postdata.user = {
+ >> 59| 		_id: '<%= user._id %>',
+    60| 		name: '<%= user.name %>',
+    61| 		photo: '<%= user.photo %>',
+    62| 		status: '<%= user.status %>'
+
+Cannot read property '_id' of null
+
+ [ 2018-9-30 15:46:59 ] error: /index
+ [ 2018-9-30 15:46:59 ] brower: mozilla/5.0 (windows nt 6.1; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/68.0.3440.106 safari/537.36
+ [ 2018-9-30 15:46:59 ] err: TypeError: E:\莫尚成\mosc\views\index.ejs:59
+    57| 	// 登录用户信息
+    58| 	/*postdata.user = {
+ >> 59| 		_id: '<%= user._id %>',
+    60| 		name: '<%= user.name %>',
+    61| 		photo: '<%= user.photo %>',
+    62| 		status: '<%= user.status %>'
+
+Cannot read property '_id' of null
+
+ [ 2018-9-30 15:47:00 ] error: /index
+ [ 2018-9-30 15:47:00 ] brower: mozilla/5.0 (windows nt 6.1; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/68.0.3440.106 safari/537.36
+ [ 2018-9-30 15:47:00 ] err: TypeError: E:\莫尚成\mosc\views\index.ejs:59
+    57| 	// 登录用户信息
+    58| 	/*postdata.user = {
+ >> 59| 		_id: '<%= user._id %>',
+    60| 		name: '<%= user.name %>',
+    61| 		photo: '<%= user.photo %>',
+    62| 		status: '<%= user.status %>'
+
+Cannot read property '_id' of null
+
+ [ 2018-9-30 15:47:00 ] error: /index
+ [ 2018-9-30 15:47:00 ] brower: mozilla/5.0 (windows nt 6.1; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/68.0.3440.106 safari/537.36
+ [ 2018-9-30 15:47:00 ] err: TypeError: E:\莫尚成\mosc\views\index.ejs:59
+    57| 	// 登录用户信息
+    58| 	/*postdata.user = {
+ >> 59| 		_id: '<%= user._id %>',
+    60| 		name: '<%= user.name %>',
+    61| 		photo: '<%= user.photo %>',
+    62| 		status: '<%= user.status %>'
+
+Cannot read property '_id' of null
+
+ [ 2018-9-30 15:47:00 ] error: /index
+ [ 2018-9-30 15:47:00 ] brower: mozilla/5.0 (windows nt 6.1; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/68.0.3440.106 safari/537.36
+ [ 2018-9-30 15:47:00 ] err: TypeError: E:\莫尚成\mosc\views\index.ejs:59
+    57| 	// 登录用户信息
+    58| 	/*postdata.user = {
+ >> 59| 		_id: '<%= user._id %>',
+    60| 		name: '<%= user.name %>',
+    61| 		photo: '<%= user.photo %>',
+    62| 		status: '<%= user.status %>'
+
+Cannot read property '_id' of null
+
+ [ 2018-9-30 15:47:01 ] error: /index
+ [ 2018-9-30 15:47:01 ] brower: mozilla/5.0 (windows nt 6.1; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/68.0.3440.106 safari/537.36
+ [ 2018-9-30 15:47:01 ] err: TypeError: E:\莫尚成\mosc\views\index.ejs:59
+    57| 	// 登录用户信息
+    58| 	/*postdata.user = {
+ >> 59| 		_id: '<%= user._id %>',
+    60| 		name: '<%= user.name %>',
+    61| 		photo: '<%= user.photo %>',
+    62| 		status: '<%= user.status %>'
+
+Cannot read property '_id' of null
+
+ [ 2018-9-30 16:02:51 ] error: /index/share
+ [ 2018-9-30 16:02:51 ] brower: mozilla/5.0 (windows nt 6.1; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/68.0.3440.106 safari/537.36
+ [ 2018-9-30 16:02:51 ] err: TypeError: Message.create is not a function
+
+ [ 2018-9-30 16:04:39 ] error: /index/share
+ [ 2018-9-30 16:04:39 ] brower: mozilla/5.0 (windows nt 6.1; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/68.0.3440.106 safari/537.36
+ [ 2018-9-30 16:04:39 ] err: TypeError: Message.create is not a function
+
+ [ 2018-9-30 16:06:22 ] error: /index/share
+ [ 2018-9-30 16:06:22 ] brower: mozilla/5.0 (windows nt 6.1; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/68.0.3440.106 safari/537.36
+ [ 2018-9-30 16:06:22 ] err: TypeError: Message.create is not a function
+
+ [ 2018-9-30 16:06:26 ] error: /index/share
+ [ 2018-9-30 16:06:26 ] brower: mozilla/5.0 (windows nt 6.1; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/68.0.3440.106 safari/537.36
+ [ 2018-9-30 16:06:26 ] err: TypeError: Message.create is not a function
+
+ [ 2018-9-30 16:07:08 ] error: /index/share
+ [ 2018-9-30 16:07:08 ] brower: mozilla/5.0 (windows nt 6.1; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/68.0.3440.106 safari/537.36
+ [ 2018-9-30 16:07:08 ] err: TypeError: Message.create is not a function
+
+ [ 2018-9-30 16:09:02 ] error: /index/share
+ [ 2018-9-30 16:09:02 ] brower: mozilla/5.0 (windows nt 6.1; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/68.0.3440.106 safari/537.36
+ [ 2018-9-30 16:09:02 ] err: TypeError: res.json is not a function
+
+ [ 2018-9-30 16:18:06 ] error: /index/share
+ [ 2018-9-30 16:18:06 ] brower: mozilla/5.0 (windows nt 6.1; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/68.0.3440.106 safari/537.36
+ [ 2018-9-30 16:18:06 ] err: TypeError: res.json is not a function
+
+ [ 2018-9-30 16:18:51 ] error: /index/share
+ [ 2018-9-30 16:18:51 ] brower: mozilla/5.0 (windows nt 6.1; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/68.0.3440.106 safari/537.36
+ [ 2018-9-30 16:18:51 ] err: TypeError: res.json is not a function
+
+ [ 2018-9-30 16:19:25 ] error: /index/share
+ [ 2018-9-30 16:19:25 ] brower: mozilla/5.0 (windows nt 6.1; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/68.0.3440.106 safari/537.36
+ [ 2018-9-30 16:19:25 ] err: TypeError: res.json is not a function
+

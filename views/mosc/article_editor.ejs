@@ -1,14 +1,8 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title></title>
-<link href="/layui/css/layui.css" rel="stylesheet" type="text/css">
+<%- include('module/head') %>
 <link href="/layuiUse/css/articl_editor.css" rel="stylesheet" type="text/css">
-<script src="/layui/layui.js"></script>
 <style>
 body{
-	padding-top:70px;
+	margin-top:70px;
 }
 .topbtn{
 	width:100%;
@@ -18,7 +12,7 @@ body{
 	top:0;
 	background:white;
 	box-shadow:0 0 8px #ccc;
-	z-index:99999999;
+	z-index:99;
 }
 .topbtn .back{
 	float:left;
@@ -32,7 +26,6 @@ body{
 	padding-right:10px;
 }
 </style>
-</head>
 
 <body>
 <div class="topbtn">
@@ -59,7 +52,7 @@ body{
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label"><!--<i>*</i>--><b>文章摘要：</b></label>
+        <label class="layui-form-label"><i>*</i><b>文章摘要：</b></label>
         <div class="layui-input-block">
         	<textarea class="layui-textarea" placeholder="请输入文章摘要" name="paper"></textarea>
         </div>
@@ -74,7 +67,7 @@ body{
     <div class="btn_box">
     	<div class="btn_box_k">
 			<button class="layui-btn layui-btn-big" lay-submit lay-filter="sub">提交文章</button>
-            <a class="layui-btn layui-btn-primary layui-btn-big" href='/mosc/article_list'>取消</a>
+            <a class="layui-btn layui-btn-primary layui-btn-big" href='/mosc/article_list?id=<%= column %>&page=1'>取消</a>
         </div>
     </div>
 </form>

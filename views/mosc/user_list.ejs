@@ -1,14 +1,7 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title></title>
-<link href="/layui/css/layui.css" rel="stylesheet" type="text/css">
-<link href="/layuiUse/css/main.css" rel="stylesheet" type="text/css">
-<script src="/layui/layui.js"></script>
-</head>
+<%- include('module/head') %>
 
 <body class="homebody">
+<link href="/layuiUse/css/main.css" rel="stylesheet" type="text/css">
 <% if( user._id=='admin' ){ %>
 	<!--explain-->
 	<blockquote class="layui-elem-quote button">
@@ -16,7 +9,8 @@
 			<input type="text" value="" placeholder="请输入关键字" class="layui-input">
 			<i class="layui-icon">&#xe615;</i>
 		</div>
-		<a class="layui-btn layui-btn-danger" id="deleted" href='/mosc/user_list'>删除用户</a>
+		<a class="layui-btn layui-bg-blue ceart_user" href='javascript:;'>添加用户</a>
+		<a class="layui-btn layui-btn-danger" id="deleted" href='javascript:;'>删除用户</a>
 	</blockquote>
 	
 	<div class="article_list">
@@ -25,8 +19,8 @@
 				<colgroup>
 				<col width="50">
 				<col>
-				<col width="13%">
-				<col width="13%">
+				<col width="120">
+				<col width="150">
 				<col>
 				</colgroup>
 				<thead>
@@ -41,8 +35,10 @@
 				</tbody>
 			</table>
 		</form>
-		<div id="demo1" page='<%= post.list %>' limit='<%= post.limit %>'></div>
+		<div id="demo1"></div>
 	</div>
+	
+	<%- include('module/user_editor') %>
 	<script src="/layuiUse/js/user_list.js"></script>
 <% }else{ %>
 	<p>你的权限不足以浏览用户信息</p>

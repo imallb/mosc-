@@ -6,16 +6,16 @@ module.exports = {
 	session: {						// 内存信息
 		secret: 'mosc',
 		key: 'mosc',
-		maxAge: 432000000			// 存储期限
+		maxAge: 86400000			// 存储期限1天
 	},
 	
 	admin:{							// 内置管理员
 		_id: 'admin',				// 自定义管理员_id属性
 		name: 'root',				// 管理员名称
-		status: 'admin'				// 管理员身份识别字符串
+		password: 'admin',			// 管理员密码
+		status: 'admin',			// 管理员身份识别字符串
+		photo: '/face.jpg'			// 默认头像
 	},
-	
-	limit:2,						// 后台文章列表显示条数
 	
 	system: {						// 系统信息
 		bag: pkg.dependencies,		// node包安装
@@ -26,5 +26,5 @@ module.exports = {
 		dataBase: 'mongodb'			// 数据库
 	},
 	
-	mongodb: 'mongodb://localhost:27017/mosc'	// mongodb连接路劲
+	mongodb: 'mongodb://localhost:27017/mosc'	// mongodb连接路径
 };

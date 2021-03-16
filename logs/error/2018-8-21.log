@@ -1,0 +1,36 @@
+ [ 2018-8-21 13:50:44 ] error: /index/login
+ [ 2018-8-21 13:50:44 ] brower: mozilla/5.0 (windows nt 10.0; wow64) applewebkit/537.36 (khtml, like gecko) chrome/55.0.2883.87 safari/537.36
+ [ 2018-8-21 13:50:44 ] err: Error: Failed to lookup view "404" in views directory "C:\Users\Administrator\Desktop\mosc\views"
+
+ [ 2018-8-21 13:50:50 ] error: /index/login
+ [ 2018-8-21 13:50:50 ] brower: mozilla/5.0 (windows nt 10.0; wow64) applewebkit/537.36 (khtml, like gecko) chrome/55.0.2883.87 safari/537.36
+ [ 2018-8-21 13:50:50 ] err: 404
+
+ [ 2018-8-21 13:50:50 ] error: /index/login
+ [ 2018-8-21 13:50:50 ] brower: mozilla/5.0 (windows nt 10.0; wow64) applewebkit/537.36 (khtml, like gecko) chrome/55.0.2883.87 safari/537.36
+ [ 2018-8-21 13:50:50 ] err: Error: Failed to lookup view "404" in views directory "C:\Users\Administrator\Desktop\mosc\views"
+
+ [ 2018-8-21 13:54:23 ] error: /index/login
+ [ 2018-8-21 13:54:23 ] brower: mozilla/5.0 (windows nt 10.0; wow64) applewebkit/537.36 (khtml, like gecko) chrome/55.0.2883.87 safari/537.36
+ [ 2018-8-21 13:54:23 ] err: 404
+
+ [ 2018-8-21 13:54:23 ] error: /index/login
+ [ 2018-8-21 13:54:23 ] brower: mozilla/5.0 (windows nt 10.0; wow64) applewebkit/537.36 (khtml, like gecko) chrome/55.0.2883.87 safari/537.36
+ [ 2018-8-21 13:54:23 ] err: Error: Failed to lookup view "404" in views directory "C:\Users\Administrator\Desktop\mosc\views"
+
+ [ 2018-8-21 14:07:12 ] error: /login
+ [ 2018-8-21 14:07:12 ] brower: mozilla/5.0 (windows nt 10.0; wow64) applewebkit/537.36 (khtml, like gecko) chrome/55.0.2883.87 safari/537.36
+ [ 2018-8-21 14:07:12 ] err: 404
+
+ [ 2018-8-21 14:07:12 ] error: /login
+ [ 2018-8-21 14:07:12 ] brower: mozilla/5.0 (windows nt 10.0; wow64) applewebkit/537.36 (khtml, like gecko) chrome/55.0.2883.87 safari/537.36
+ [ 2018-8-21 14:07:12 ] err: Error: Failed to lookup view "404" in views directory "C:\Users\Administrator\Desktop\mosc\views"
+
+ [ 2018-8-21 14:28:23 ] error: /index/login
+ [ 2018-8-21 14:28:23 ] brower: mozilla/5.0 (windows nt 10.0; wow64) applewebkit/537.36 (khtml, like gecko) chrome/55.0.2883.87 safari/537.36
+ [ 2018-8-21 14:28:23 ] err: ReferenceError: UserModel is not defined
+
+ [ 2018-8-21 15:14:45 ] error: /mosc/login
+ [ 2018-8-21 15:14:45 ] brower: mozilla/5.0 (windows nt 10.0; wow64) applewebkit/537.36 (khtml, like gecko) chrome/55.0.2883.87 safari/537.36
+ [ 2018-8-21 15:14:45 ] err: ReferenceError: consolel is not defined
+

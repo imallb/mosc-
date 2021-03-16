@@ -11,22 +11,24 @@ router.get('/', check.checkNotLogin, function(req, res, next){
 router.post('/', function(req, res, next){
 	var name= req.body.users;
 	var password= req.body.password;
-	
 	UserModel.getUserByName(name)
 		.then(function(user){
-			
 			if(!user){
 				var config = require('config-lite');
-				//console.log('用户不存在');
+				console.log(config.admin.password)
 				if(name!=config.admin.name){
 					console.log('管理员帐号错误！');
 					return res.redirect('back');
 				};
-				if(password!='admin'){
+				if(password!=config.admin.password){
 					console.log('管理员密码错误！');
 					return res.redirect('back');
 				};
-				var adminUser = config.admin;
+				var adminUser = {};
+				for(var i in config.admin){
+					adminUser[i] = config.admin[i];
+				};
+				delete adminUser.password;
 				req.session.user = adminUser;
 				return res.redirect('/mosc');
 			}else{

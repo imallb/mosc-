@@ -17,11 +17,29 @@ module.exports = {
 			.addCreatedAt()
 			.exec();
 	},
-	// 获取其中一些文章
+	// 获取某一个用户文章
+	getAllArticlez: function getAllArticle(obj){
+		return Post
+			.find(obj)
+			.sort({ _id: 1 })
+			.addCreatedAt()
+			.exec();
+	},
+	// 获取其中一些文章（反序）
 	getLimitArticle: function getLimitArticle(author,l,s){
 		return Post
 			.find(author)
 			.sort({ _id: -1 })
+			.limit(l)
+			.skip(s)
+			.addCreatedAt()
+			.exec();
+	},
+	// 获取其中一些文章（正序）
+	getLimitArticlez: function getLimitArticle(author,l,s){
+		return Post
+			.find(author)
+			.sort({ _id: 1 })
 			.limit(l)
 			.skip(s)
 			.addCreatedAt()
@@ -41,6 +59,10 @@ module.exports = {
 	// 删除一篇文章
 	deleteArticle: function deleteArticle(postId) {
 	  return Post.remove({ _id: postId }).exec();
+	},
+	// 删除文章
+	deleteAllArticle: function deleteArticle(post) {
+	  return Post.remove(post).exec();
 	}
 };
 

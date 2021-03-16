@@ -29,9 +29,15 @@ router.post('/', function(req, res, next){
 		var dir = path.resolve(__dirname, '../..'+url);
 		fs.writeFile(dir, text, function(err){
 			if(err){
-				console.log(err);
+				return res.json({
+					static:'error',
+					message:err
+				});
 			}else{
-				res.redirect('back');
+				return res.json({
+					static:'success',
+					message:'提交成功!'
+				});
 			}
 		});
 	}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>  
+<html>
+<head>  
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+<title>Hello, World</title>  
+</head>  
+ 
+<body>  
+<div id="container"></div> 
+<script type="text/javascript"> 
+alert(navigator.geolocation.getCurrentPosition)
+    if (navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(function(position){
+
+        alert(123);
+      });
+    }
+    else{alert("Geolocation is not supported by this browser.")}
+</script>  
+</body>  
+</html>

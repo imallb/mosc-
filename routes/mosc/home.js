@@ -23,14 +23,25 @@ router.get('/', function(req, res, next){
 });
 // 所有文章
 router.get('/allCount', function(req, res, next){
-	PostModel.getCount({'title':{$ne:null}})
+	var author = req.session.user._id;
+	var post = {};
+	if(req.session.user._id != 'admin'){
+		post['author._id'] = req.session.user._id;
+	};
+	post['title'] = {$ne:null};
+	PostModel.getCount(post)
 		.then(function(count){
 			res.send(count.toString());
 		})
 });
 // 审核文章
 router.get('/readCount', function(req, res, next){
-	PostModel.getCount({'read':['on']})
+	var post = {};
+	if(req.session.user._id != 'admin'){
+		post['author._id'] = req.session.user._id;
+	};
+	post['read'] = ['on'];
+	PostModel.getCount(post)
 		.then(function(count){
 			count = count==''?0:count;
 			res.send(count.toString());
@@ -38,6 +49,9 @@ router.get('/readCount', function(req, res, next){
 });
 // 所有用户
 router.get('/allUser', function(req, res, next){
+	if(req.session.user._id != 'admin'){
+		res.send('0');
+	};
 	UserModel.getCount({'name':{$ne:null}})
 		.then(function(count){
 			res.send(count.toString());
@@ -45,14 +59,24 @@ router.get('/allUser', function(req, res, next){
 });
 // 所有栏目
 router.get('/allColumn', function(req, res, next){
-	ColumnModel.getCount({'title':{$ne:null}})
+	var post = {};
+	if(req.session.user._id != 'admin'){
+		post['author._id'] = req.session.user._id;
+	};
+	post['title'] = {$ne:null};
+	ColumnModel.getCount(post)
 		.then(function(count){
 			res.send(count.toString());
 		})
 });
 // 审核文章
 router.get('/readColumn', function(req, res, next){
-	ColumnModel.getCount({'read':['on']})
+	var post = {};
+	if(req.session.user._id != 'admin'){
+		post['author._id'] = req.session.user._id;
+	};
+	post['read'] = ['on'];
+	ColumnModel.getCount(post)
 		.then(function(count){
 			count = count==''?0:count;
 			res.send(count.toString());

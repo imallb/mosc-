@@ -2,12 +2,286 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>无标题文档</title>
+<title>mosc</title>
+<link href="/layui/css/layui.css" rel="stylesheet" type="text/css">
+<script src="/layui/layui.js"></script>
+<link href="/css/index.css" rel="stylesheet" type="text/css">
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d7114b3fb14b9539cf72a6b7683e3e9c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
 </head>
 
 <body>
+<div class="tit-left">
+	<% if(user==null){ %>
+		<div class="portrait">
+			<div class="photo"><img src="/face.jpg"></div>
+			<div class="userText">
+				<p>未登录</p>
+				<p><a class="login">登陆</a></p>
+			</div>
+		</div>
+	<% }else{ %>
+		<div class="portrait">
+			<div class="photo"><img src="<%= user.photo %>"></div>
+			<div class="userText">
+				<p><%= user.name %></p>
+				<p><a href="/index/loginout">退出</a></p>
+			</div>
+		</div>
+	<% } %>
+	<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+		<ul class="layui-tab-title listTitle">
+			<li>目录</li>
+			<li>文章</li>
+		</ul>
+		<div class="layui-tab-content">
+			<div class="layui-tab-item directory"></div>
+			<div class="layui-tab-item articleList">
+				<blockquote class="layui-elem-quote"></blockquote>
+				<ul></ul>
+			</div>
+		</div>
+	</div>
+</div>
+<%- include('./article') %>
+
+<script>
+
+layui.use(['element','jquery', 'layer', 'form', 'laypage'], function(){
+	var element = layui.element;
+	var layer = layui.layer;
+	var form = layui.form;
+	var $ = layui.jquery;
+	var laypage = layui.laypage;
+	var sharePage= 1;
+	var postdata = {};
+	var articleid = '';
 
 
+	// 获取栏目列表
+	$.ajax({
+		url:"/index/column?page=1&limit=10",
+		type:'GET',
+		dataType:"json",
+		success:function(data){
+			var post = data.posts;
+			var s = 0;
 
+			for(var i=0;i<post.length;i++){
+				;(function(i){
+					var res = post[i];
+					var tory = $('<p>');
+					tory.text(res.title);
+					$('.directory').append(tory);
+					tory.on('click',function(){
+						layer.load(2)
+						$('.directory p').removeClass('hover');
+						$(this).addClass('hover');
+						postfn(res);
+					});
+					if(s==0){
+						tory.addClass('hover');
+						postfn(res);
+					};
+					s++;
+				})(i);
+			};
+			function postfn(obj){
+				postdata.author = obj.author;
+				postdata.column = obj._id;
+				articleList(obj._id);
+			}
+		}
+	});
+	// 获取文章列表
+	function articleList(ids){
+		$.ajax({
+			url:"/index/article_list?id="+ids,
+			type:'GET',
+			dataType:"json",
+			success:function(data){
+				var post = data.data;
+				var column = data.column;
+				var s = 0;
+				$('.listTitle li').eq(1).click();
+				$('.articleList blockquote').text(column.title);
+				$('.articleList ul').html('');
+				if(post.length > 0){
+					$('.contents').show();
+					for(var i=0;i<post.length;i++){
+						;(function(i){
+							var res = post[i];
+							var list = $('<li>');
+							list.text(res.title)
+							$('.articleList ul').append(list);
+							list.on('click',function(){
+								sharePage = 1;
+								$('.articleList ul li').removeClass('hover');
+								$(this).addClass('hover');
+								postfn(res);
+							});
+							if(s==0){
+								list.addClass('hover');
+								postfn(res);
+							};
+							s++;
+						})(i);
+					};
+				}else{
+					$('.contents').hide();
+				};
+				layer.closeAll('loading');
+				function postfn(obj){
+					articleid = obj._id;
+					postdata.article = obj._id;
+					postdata.title = obj.title;
+					postdata.paper = obj.paper;
+					articled(obj._id);
+				}
+			}
+		});
+	};
+	// 获取文章
+	function articled(ids){
+		$('.contents').html('<div class="loading">'+
+			'<i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop" style="font-size:36px;;">&#xe63d;</i>'+
+		'</div>');
+		$.get('/index/article/'+ids, function(res){
+			var html = '<div class="con-title">'+ res.data.title +'</div>'+
+				'<blockquote class="layui-elem-quote con-describe">'+ res.data.paper +'</blockquote>'+
+				'<div class="con-content">'+ content(res.data.content) +'</div>'+
+				'<div class="editor-btn">'+
+					'<p><a id="editorFn"><i class="layui-icon">&#xe642;</i>点击分享知识</a></p>'+
+					'<p>如果对本内容有疑问和兴趣，请分享你的见解和问题</p>'+
+				'</div>'+
+				'<div class="messagebox">'+
+					'<div class="message"></div>'+
+					'<div id="demo1" style="margin-top:15px;"></div>'+
+				'</div>';
+			$('.contents').html(html);
+			$("#editorFn").on('click',share);
+			getShare(ids);
+		});
+	};
+	// 获取留言
+
+	function getShare(ids){
+		//页码
+		$.get('/index/share/count/'+ids,function(count){
+			laypage.render({
+				elem: 'demo1',
+				count: count.data,
+				limit: 6,
+				curr: sharePage,
+				jump: function(obj, first){
+					// 记录当前页码，异步刷新后保持在当前页码
+					$('.message').html('');
+					$.get('/index/share/'+ids,{page:obj.curr,limit:obj.limit},function(res){
+						var data = res.data;
+						for(var i=0;i<data.length;i++){
+							var html = '<div class="messlist">'+
+										'<div class="messphoto"><img src="'+data[i].user.photo+'"></div>'+
+										'<div class="messtext">'+
+											'<div class="messcont">'+content(data[i].message)+'</div>'+
+											'<div class="messname">'+
+											'	<div class="messbox"><p>'+data[i].user.name+'</p><span>'+data[i].created_at+'</span></div>'+
+											'</div>'+
+										'</div></div>';
+							$('.message').append(html);
+						}
+					});
+				}
+			});
+		})
+	};
+	// 登录
+	<% if(user==null){ %>
+		postdata.user = {};
+		$("#editorFn").on('click',login);
+		$('.login').on('click',login);
+	<% }else{ %>
+		postdata.user = {
+			_id: '<%= user._id %>',
+			name: '<%= user.name %>',
+			photo: '<%= user.photo %>',
+			status: '<%= user.status %>'
+		};
+	<% } %>
+	// 提交留言
+	function share(){
+		layer.open({
+			type: 2,
+			title: '留言板',
+			area: ['800px','70%'],
+			maxmin: true,
+			resize:false,
+			content: '/index/share',
+			zIndex: layer.zIndex,
+			success: function(layero,index){
+				var body = layer.getChildFrame('body', index);
+				body.find('.sharebtn a').on('click',function(){
+					postdata.message = body.find('#message').val();
+					$.post('/index/share',postdata,function(res){
+						sharePage = 1;
+						layer.msg(res.message);
+						layer.closeAll('iframe');
+						getShare(articleid);
+					})
+				})
+			}
+		});
+	}
+	// 登录窗口
+	function login(){
+		layer.open({
+			type: 2,
+			title: '登陆',
+			area: '500px',
+			maxmin: true,
+			resize:false,
+			move:false,
+			content: '/index/login',
+			zIndex: layer.zIndex,
+			success: function(layero,index){
+				var body = layer.getChildFrame('body', index);
+				// 登陆
+				body.find('.sub').on('click',function(){
+					var name = body.find('[name=users]').val();
+					var password = body.find('[name=password]').val();
+					if(name == ''){
+						body.find('[name=users]').focus();
+						layer.msg('用户名不能为空！');
+						return false;
+					};
+					if(password == ''){
+						body.find('[name=password]').focus();
+						layer.msg('密码不能为空！');
+						return false;
+					};
+					$.post('/index/login',{users:name,password:password},function(res){
+						layer.msg(res.message);
+						if(res.static == 'success'){
+							setTimeout(function(){
+								layer.closeAll('iframe');
+								window.location.reload();
+							},1000);
+						};
+					});
+				});
+				layer.iframeAuto(index);
+			}
+		});
+	}
+});
+</script>
 </body>
 </html>

@@ -1030,7 +1030,7 @@ var utils = UE.utils = {
                     case 'border':
                         return val == 'initial' ? '' : str;
                 }
-            }
+            };
             return str;
         });
 
@@ -1288,7 +1288,7 @@ var utils = UE.utils = {
                     strArr.push( encodeURIComponent(i) + "[]="+encodeURIComponent(json[i][j]) );
                 }
             }
-        }
+        };
         return strArr.join("&");
     },
     formatUrl:function (url) {
@@ -8187,7 +8187,7 @@ UE.ajax = function() {
                     strArr.push( encodeURIComponent(i) + "[]="+encodeURIComponent(json[i][j]) );
                 }
             }
-        }
+        };
         return strArr.join("&");
     }
 
@@ -13175,29 +13175,29 @@ UE.plugins['insertcode'] = function() {
             me.document)
     });
     me.setOpt('insertcode',{
-            'as3':'ActionScript3',
+            // 'as3':'ActionScript3',
             'bash':'Bash/Shell',
             'cpp':'C/C++',
             'css':'Css',
-            'cf':'CodeFunction',
+            // 'cf':'CodeFunction',
             'c#':'C#',
-            'delphi':'Delphi',
-            'diff':'Diff',
-            'erlang':'Erlang',
-            'groovy':'Groovy',
+            // 'delphi':'Delphi',
+            // 'diff':'Diff',
+            // 'erlang':'Erlang',
+            // 'groovy':'Groovy',
             'html':'Html',
             'java':'Java',
-            'jfx':'JavaFx',
+            // 'jfx':'JavaFx',
             'js':'Javascript',
-            'pl':'Perl',
+            // 'pl':'Perl',
             'php':'Php',
-            'plain':'Plain Text',
+            // 'plain':'Plain Text',
             'ps':'PowerShell',
             'python':'Python',
-            'ruby':'Ruby',
-            'scala':'Scala',
+            // 'ruby':'Ruby',
+            // 'scala':'Scala',
             'sql':'Sql',
-            'vb':'Vb',
+            // 'vb':'Vb',
             'xml':'Xml'
     });
 
@@ -13258,7 +13258,7 @@ UE.plugins['insertcode'] = function() {
                                         }else{
                                             code += cn.data
                                         }
-                                    })
+                                    });
                                     if(!/\n$/.test(code)){
                                         code += '\n';
                                     }
@@ -13612,14 +13612,14 @@ UE.plugins['insertcode'] = function() {
                                 }else{
                                     htmlstr += cn.data
                                 }
-                            })
+                            });
                             if(!/\n$/.test(htmlstr)){
                                 htmlstr += '\n';
                             }
                         }
                     }else{
                         htmlstr += node.data + '\n'
-                    }
+                    };
                     if(!node.nextSibling() && /\n$/.test(htmlstr)){
                         htmlstr = htmlstr.replace(/\n$/,'');
                     }
@@ -13647,14 +13647,14 @@ UE.plugins['insertcode'] = function() {
                                     frag.appendChild(me.document.createTextNode(utils.html( cn.data.replace(/&nbsp;/g,' '))));
 
                                 }
-                            })
+                            });
                             if(frag.lastChild.nodeName != 'BR'){
                                 frag.appendChild(me.document.createElement('br'))
                             }
                         }
                     }else{
                         frag.appendChild(me.document.createTextNode(utils.html( node.data.replace(/&nbsp;/g,' '))));
-                    }
+                    };
                     if(!node.nextSibling() && frag.lastChild.nodeName == 'BR'){
                        frag.removeChild(frag.lastChild)
                     }
@@ -13677,7 +13677,7 @@ UE.plugins['insertcode'] = function() {
                 var last = pre.lastChild
                 while(last && last.nodeName == 'BR'){
                     last = last.previousSibling;
-                }
+                };
                 if(last === start || rng.startContainer === pre && rng.startOffset == pre.childNodes.length){
                     me.execCommand('insertparagraph');
                     domUtils.preventDefault(evt)
@@ -13734,7 +13734,7 @@ UE.commands['cleardoc'] = {
         }else{
             me.body.innerHTML = "<p>"+(ie ? "" : "<br/>")+"</p>";
             range.setStart(me.body.firstChild,0).setCursor(false,true);
-        }
+        };
         setTimeout(function(){
             me.fireEvent("clearDoc");
         },0);
@@ -14005,7 +14005,7 @@ UE.plugins['pagebreak'] = function () {
                     domUtils.remove(pre);
                 }else{
                     pre && fillNode(pre);
-                }
+                };
 
                 if(!nextNode){
                     var p = me.document.createElement('p');
@@ -14103,7 +14103,7 @@ UE.plugins['dragdrop'] = function (){
                     }else{
                         break;
                     }
-                }
+                };
 
 
                 if((pre && pre.nodeType == 1 && !domUtils.isEmptyBlock(pre) || !pre) && (!next || next && !domUtils.isEmptyBlock(next))){
@@ -14113,14 +14113,14 @@ UE.plugins['dragdrop'] = function (){
                         domUtils.remove(next);
                     }else  if(next && next.tagName == 'P' && !domUtils.isEmptyBlock(next)){
                         next.insertBefore(node,next.firstChild);
-                    }
+                    };
 
                     if(pre && pre.tagName == 'P' && domUtils.isEmptyBlock(pre)){
                         domUtils.remove(pre)
                     }
                     if(next && next.tagName == 'P' && domUtils.isEmptyBlock(next)){
                         domUtils.remove(next)
-                    }
+                    };
                     rng.selectNode(node).select();
                     me.fireEvent('saveScene');
 
@@ -14395,15 +14395,15 @@ UE.plugins['undo'] = function () {
                 me.undoManger.save(false,true);
                 isCollapsed = false;
                 return;
-            }
+            };
             if (me.undoManger.list.length == 0) {
                 me.undoManger.save(true);
-            }
+            };
             clearTimeout(saveSceneTimer);
             function save(cont){
                 cont.undoManger.save(false,true);
                 cont.fireEvent('selectionchange');
-            }
+            };
             saveSceneTimer = setTimeout(function(){
                 if(inputType){
                     var interalTimer = setInterval(function(){
@@ -14694,7 +14694,7 @@ UE.plugins['paste'] = function () {
             //抢了默认的粘贴，那后边的内容就不执行了，比如表格粘贴
             if(!html.html){
                 return;
-            }
+            };
             root = UE.htmlparser(html.html,true);
             //如果开启了纯文本模式
             if (me.queryCommandState('pasteplain') === 1) {
@@ -14735,7 +14735,7 @@ UE.plugins['paste'] = function () {
                         if(pre && pre.nodeType == 3 && new RegExp('^[\n\r\t '+domUtils.fillChar+']*$').test(pre.nodeValue)){
                             range.setStartBefore(pre)
                         }
-                    }
+                    };
                     if(range.startOffset == 0){
                         range.setStartBefore(range.startContainer);
                     }else{
@@ -14756,7 +14756,7 @@ UE.plugins['paste'] = function () {
                         if(next && next.nodeType == 3 && new RegExp('^[\n\r\t'+domUtils.fillChar+']*$').test(next.nodeValue)){
                             range.setEndAfter(next)
                         }
-                    }
+                    };
                     if(range.endOffset == range.endContainer[range.endContainer.nodeType == 3 ? 'nodeValue' : 'childNodes'].length){
                         range.setEndAfter(range.endContainer);
                     }else{
@@ -15008,7 +15008,7 @@ UE.plugins['list'] = function () {
                     customCss.push('li.list-' + customStyle[p] + i + '{background-image:url(' + liiconpath + 'list-'+customStyle[p] + i + '.gif)}')
                 }
                 customCss.push('ol.custom_'+p+'{list-style:none;}ol.custom_'+p+' li{background-position:0 3px;background-repeat:no-repeat}');
-            }
+            };
             switch(p){
                 case 'cn':
                     customCss.push('li.list-'+p+'-paddingleft-1{padding-left:25px}');
@@ -15110,7 +15110,7 @@ UE.plugins['list'] = function () {
                     if(!type){
                         type = list.tagName == 'OL' ? 'decimal' : 'disc';
                     }
-                }
+                };
                 var index = utils.indexOf(listStyle[list.tagName], type);
                 if(n.parentNode !== root)
                     index = index + 1 == listStyle[list.tagName].length ? 0 : index + 1;
@@ -15138,7 +15138,7 @@ UE.plugins['list'] = function () {
                         newChildrens.splice(index,0,tmpNode);
                         tmpNode.parentNode = li;
                         lastNode = tmpNode;
-                    }
+                    };
                     tmpNode = newChildrens[newChildrens.length-1];
                     if(!tmpNode || tmpNode.type != 'element' || tmpNode.tagName != 'br'){
                         var br = UE.uNode.createElement('br');
@@ -15171,7 +15171,7 @@ UE.plugins['list'] = function () {
                     }
 
                 }
-            }
+            };
             if(tmpP.firstChild() && !tmpP.parentNode || !li.firstChild()){
                 li.appendChild(tmpP);
             }
@@ -15215,7 +15215,7 @@ UE.plugins['list'] = function () {
                     }
                 }
 
-            }
+            };
             utils.each(root.getNodesByTagName('p'),function(node){
                 if(node.getAttr('class') != 'MsoListParagraph'){
                     return
@@ -15243,7 +15243,7 @@ UE.plugins['list'] = function () {
                     var li = UE.uNode.createElement('li');
                     li.appendChild(p);
                     list.appendChild(li);
-                }
+                };
                 var tmp = node,type,cacheNode = node;
 
                 if(node.parentNode.tagName != 'li' && (type = checkListType(node.innerText(),node))){
@@ -15261,11 +15261,11 @@ UE.plugins['list'] = function () {
                         }
                         appendLi(list,node,type);
                         node = tmp;
-                    }
+                    };
                     if(!list.parentNode && node && node.parentNode){
                         node.parentNode.insertBefore(list,node)
                     }
-                }
+                };
                 var span = cacheNode.firstChild();
                 if(span && span.type == 'element' && span.tagName == 'span' && /^\s*(&nbsp;)+\s*$/.test(span.innerText())){
                     span.parentNode.removeChild(span)
@@ -15296,7 +15296,7 @@ UE.plugins['list'] = function () {
                     setListStyle(node,listStyle[node.tagName][styleIndex])
                 }
 
-            }
+            };
             var index = 0,type = 2;
             if( domUtils.hasClass(node,/custom_/)){
                 if(!(/[ou]l/i.test(parent.tagName) && domUtils.hasClass(parent,/custom_/))){
@@ -15306,7 +15306,7 @@ UE.plugins['list'] = function () {
                 if(/[ou]l/i.test(parent.tagName) && domUtils.hasClass(parent,/custom_/)){
                     type = 3;
                 }
-            }
+            };
 
             var style = domUtils.getStyle(node, 'list-style-type');
             style && (node.style.cssText = 'list-style-type:' + style);
@@ -15316,10 +15316,10 @@ UE.plugins['list'] = function () {
                 if(!li.firstChild){
                     domUtils.remove(li);
                     return;
-                }
+                };
                 if(li.parentNode !== node){
                     return;
-                }
+                };
                 index++;
                 if(domUtils.hasClass(node,/custom_/) ){
                     var paddingLeft = 1,currentStyle = getStyle(node);
@@ -15340,14 +15340,14 @@ UE.plugins['list'] = function () {
                                         paddingLeft = 2
                                     }
                             }
-                        }
+                        };
                         li.className = 'list-'+customStyle[currentStyle]+ index + ' ' + 'list-'+currentStyle+'-paddingleft-' + paddingLeft;
                     }else{
                         li.className = 'list-'+customStyle[currentStyle]  + ' ' + 'list-'+currentStyle+'-paddingleft';
                     }
                 }else{
                     li.className = li.className.replace(/list-[\w\-]+/gi,'');
-                }
+                };
                 var className = li.getAttribute('class');
                 if(className !== null && !className.replace(/\s/g,'')){
                     domUtils.removeAttributes(li,'class')
@@ -15355,7 +15355,7 @@ UE.plugins['list'] = function () {
             });
             !ignore && adjustList(node,node.tagName.toLowerCase(),getStyle(node)||domUtils.getStyle(node, 'list-style-type'),true);
         })
-    }
+    };
     function adjustList(list, tag, style,ignoreEmpty) {
         var nextList = list.nextSibling;
         if (nextList && nextList.nodeType == 1 && nextList.tagName.toLowerCase() == tag && (getStyle(nextList) || domUtils.getStyle(nextList, 'list-style-type') || (tag == 'ol' ? 'decimal' : 'disc')) == style) {
@@ -15363,48 +15363,48 @@ UE.plugins['list'] = function () {
             if (nextList.childNodes.length == 0) {
                 domUtils.remove(nextList);
             }
-        }
+        };
         if(nextList && domUtils.isFillChar(nextList)){
             domUtils.remove(nextList);
-        }
+        };
         var preList = list.previousSibling;
         if (preList && preList.nodeType == 1 && preList.tagName.toLowerCase() == tag && (getStyle(preList) || domUtils.getStyle(preList, 'list-style-type') || (tag == 'ol' ? 'decimal' : 'disc')) == style) {
             domUtils.moveChild(list, preList);
-        }
+        };
         if(preList && domUtils.isFillChar(preList)){
             domUtils.remove(preList);
-        }
+        };
         !ignoreEmpty && domUtils.isEmptyBlock(list) && domUtils.remove(list);
         if(getStyle(list)){
             adjustListStyle(list.ownerDocument,true)
         }
-    }
+    };
 
     function setListStyle(list,style){
         if(customStyle[style]){
             list.className = 'custom_' + style;
-        }
+        };
         try{
             domUtils.setStyle(list, 'list-style-type', style);
         }catch(e){}
-    }
+    };
     function clearEmptySibling(node) {
         var tmpNode = node.previousSibling;
         if (tmpNode && domUtils.isEmptyBlock(tmpNode)) {
             domUtils.remove(tmpNode);
-        }
+        };
         tmpNode = node.nextSibling;
         if (tmpNode && domUtils.isEmptyBlock(tmpNode)) {
             domUtils.remove(tmpNode);
-        }
-    }
+        };
+    };
 
     me.addListener('keydown', function (type, evt) {
         function preventAndSave() {
             evt.preventDefault ? evt.preventDefault() : (evt.returnValue = false);
             me.fireEvent('contentchange');
             me.undoManger && me.undoManger.save();
-        }
+        };
         function findList(node,filterFn){
             while(node && !domUtils.isBody(node)){
                 if(filterFn(node)){
@@ -15416,7 +15416,7 @@ UE.plugins['list'] = function () {
                 node = node.parentNode;
             }
             return null;
-        }
+        };
         var keyCode = evt.keyCode || evt.which;
         if (keyCode == 13 && !evt.shiftKey) {//回车
             var rng = me.selection.getRange(),
@@ -15494,7 +15494,7 @@ UE.plugins['list'] = function () {
                         preventAndSave();
                         return;
                     }
-                }
+                };
 
 
                 li = domUtils.findParentByTagName(range.startContainer, 'li', true);
@@ -15581,7 +15581,7 @@ UE.plugins['list'] = function () {
             }
 
 
-        }
+        };
         if (keyCode == 8) {
             //修中ie中li下的问题
             range = me.selection.getRange();
@@ -15883,7 +15883,7 @@ UE.plugins['list'] = function () {
 
                 if (!style) {
                     style = command.toLowerCase() == 'insertorderedlist' ? 'decimal' : 'disc';
-                }
+                };
                 var me = this,
                     range = this.selection.getRange(),
                     filterFn = function (node) {
@@ -15906,7 +15906,7 @@ UE.plugins['list'] = function () {
                     start && (startParent = start.parentNode);
                     if (!bko.end) {
                         end = start;
-                    }
+                    };
                     end && (endParent = end.parentNode);
 
                     if (startParent === endParent) {
@@ -15999,7 +15999,7 @@ UE.plugins['list'] = function () {
                             }
 
                             start = tmp;
-                        }
+                        };
                         startParent.parentNode.insertBefore(frag, startParent.nextSibling);
                         if (domUtils.isEmptyNode(startParent)) {
                             range.setStartBefore(startParent);
@@ -16887,7 +16887,7 @@ UE.plugins['fiximgclick'] = (function () {
         this.doc = document;
         this.prePos = {x: 0, y: 0};
         this.startPos = {x: 0, y: 0};
-    }
+    };
 
     (function () {
         var rect = [
@@ -17668,7 +17668,7 @@ UE.plugins['video'] = function (){
                     ' controls preload="none" width="' + width + '" height="' + height + '" src="' + url + '" data-setup="{}">' +
                     '<source src="' + url + '" type="video/' + ext + '" /></video>';
                 break;
-        }
+        };
         return str;
     }
 
@@ -17981,7 +17981,7 @@ UE.plugins['video'] = function (){
         tmpCell.style.borderTopWidth = cell.style.borderBottomWidth;
         flag && domUtils.addClass(cell, "selectTdClass");
         return tmpCell;
-    }
+    };
 
     UETable.prototype = {
         getMaxRows:function () {
@@ -19035,7 +19035,7 @@ UE.plugins['video'] = function (){
                 } else {
                     rng.setStart(next, 0)
                 }
-                rng.setCursor(false, true)
+                rng.setCursor(false, true);
                 this.fireEvent("tablehasdeleted")
 
             }
@@ -19843,7 +19843,7 @@ UE.plugins['video'] = function (){
         setTimeout(function () {
             utils.each(tds, function (td) {
                 (td.colSpan == 1) && tdsWidths.push(td.offsetWidth)
-            })
+            });
             utils.each(tds, function (td,i) {
                 (td.colSpan == 1) && td.setAttribute("width", tdsWidths[i] + "");
             })
@@ -19920,14 +19920,14 @@ UE.plugins['table'] = function () {
                 var str = '';
                 utils.each(table.selectedTds,function(td){
                     str += td[browser.ie?'innerText':'textContent'];
-                })
+                });
                 return str;
             }else{
                 return orgGetText.call(me.selection)
             }
 
         }
-    })
+    });
 
     //处理拖动及框选相关方法
     var startTd = null, //鼠标按下时的锚点td
@@ -22906,7 +22906,7 @@ UE.plugin.register('searchreplace',function(){
                     }
                 }
             }else if(!dtd.$empty[currentNode.tagName]){
-                currentNodeLength = currentNode[browser.ie ? 'innerText' : 'textContent'].replace(/(^[\t\r\n]+)|([\t\r\n]+$)/,'').length
+                currentNodeLength = currentNode[browser.ie ? 'innerText' : 'textContent'].replace(/(^[\t\r\n]+)|([\t\r\n]+$)/,'').length;
                 currentIndex += currentNodeLength;
                 if(currentIndex >= index){
                     result = findNTextInBlockElm(currentNode,currentNodeLength - (currentIndex - index),str);
@@ -24119,7 +24119,7 @@ UE.plugin.register('charts', function (){
             })
 
         }
-    }
+    };
 
     function validData ( table ) {
 

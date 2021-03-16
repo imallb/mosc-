@@ -4,77 +4,82 @@ layui.use(['jquery','form','laypage','layer'],function(){
 	var laypage = layui.laypage;
 	var layer = layui.layer;
 	var page = new Number($('#demo1').attr('page'));
-	var list = new Number($('#demo1').attr('list'));
-	var limit = new Number($('#demo1').attr('limit'));
 	
-	function columns(){
+	function columns(u){
+		var urlText = '';
+		if(u){
+			var urlText = u.search?u.search:'';
+		};
+		var countText = urlText ==''? '' : '?search='+urlText+'&select='+u.select;
+		var columnText = urlText ==''? '' : '&search='+urlText+'&select='+u.select;
 		//页码
-		laypage.render({
-			elem: 'demo1',
-			count: list,
-			limit: limit,
-			curr: page,
-			jump: function(obj, first){
-				// 记录当前页码，异步刷新后保持在当前页码
-				page = obj.curr;
-
-				// 异步加载文章列表
-				$.ajax({
-					type:"GET",
-					url:"/mosc/api/column?page="+page+"&limit="+limit,
-					dataType:"json",
-					success:function(data){
-						$('#allChoose').get([0]).checked = false;
-						$("tbody").html('');
-						
-						if( user !='admin' ){
+		console.log('/mosc/column/count' + countText)
+		$.get('/mosc/column/count' + countText, function(res){
+			console.log(res)
+			laypage.render({
+				elem: 'demo1',
+				count: res.data,
+				limit: 10,
+				curr: page,
+				jump: function(obj, first){
+					// 记录当前页码，异步刷新后保持在当前页码
+					page = obj.curr;
+					// 异步加载文章列表
+					$.ajax({
+						type:"GET",
+						url:"/mosc/api/column?page="+page+"&limit="+obj.limit+columnText,
+						dataType:"json",
+						success:function(data){
+							console.log(data.posts)
+							$('#allChoose').get([0]).checked = false;
+							$("tbody").html('');
 							for(var i=0;i<data.posts.length;i++){
 								var posts = data.posts[i];
-								if( user==posts.author._id ){
-									tbodyhtml(posts);
-								}
-							}
-						}else{
-							for(var i=0;i<data.posts.length;i++){
-								var posts = data.posts[i];
-								tbodyhtml(posts, i);
-							}
-						};
-						function tbodyhtml(post){
-							$("tbody").append(
-								'<tr>'+
-									'<td><input type="checkbox" name="checklist[]" lay-skin="primary" lay-filter="checklist" class="checklist" value="'+post._id+'"></td>'+
-									'<td align="left">'+post.title+'</td>'+
-									'<td>'+post.author.name+'</td>'+
-									'<td>'+( (post.read[0]=='on')?'审核中':'已通过' )+'</td>'+
-									'<td>'+post.created_at+'</td>'+
-									'<td>'+
-										'<a class="layui-btn layui-btn-mini news_edit" href="/mosc/article_list?id='+post._id+'&page='+page+'"><i class="layui-icon">&#xe642;</i>编辑</a>'+
-										'<a class="layui-btn layui-btn-mini layui-bg-red news_clear" data="/mosc/column/delete?postId='+post._id+'"><i class="layui-icon">&#xe640;</i>删除</a>'+
-									'</td>'+
-								'</tr>'
-							);
-							
-						};
-						form.render('checkbox');
-						layer.closeAll();
-						
-						// 删除单个数据
-						$('.news_clear').on('click',function(){
-							var url = $(this).attr('data');
-							layer.load(2);
-							$.get(url, function(data){
-								list = data.list;
-								columns();
-							});
-						})
-					}
-				});
-			}
+								tbodyhtml(posts);
+							};
+							form.render('checkbox');
+							layer.closeAll('loading');
+							// 删除单个数据
+							$('.news_clear').on('click',function(){
+								var url = $(this).attr('data');
+								layer.load(2);
+								$.get(url, function(data){
+									columns();
+									layer.msg(data.message,{time: 2000});
+								});
+							})
+						}
+					});
+				}
+			});
 		});
 	};
 	columns();
-	
+	// 创建html
+	function tbodyhtml(post){
+		$("tbody").append(
+			'<tr>'+
+				'<td><input type="checkbox" name="checklist[]" lay-skin="primary" lay-filter="checklist" class="checklist" value="'+post._id+'"></td>'+
+				'<td align="left">'+post.title+'</td>'+
+				'<td>'+post.author.name+'</td>'+
+				'<td>'+( (post.read[0]=='on')?'审核中':'已通过' )+'</td>'+
+				'<td>'+post.created_at+'</td>'+
+				'<td>'+
+					'<span class="layui-btn layui-btn-mini news_edit" onclick="articleList(\'/mosc/article_list?id='+post._id+'\','+page+')"><i class="layui-icon">&#xe642;</i>编辑</span>'+
+					'<span class="layui-btn layui-btn-mini layui-bg-red news_clear" data="/mosc/column/delete?postId='+post._id+'"><i class="layui-icon">&#xe640;</i>删除</span>'+
+				'</td>'+
+			'</tr>'
+		);
+	};
+	// 搜索
+	$('#search').on('click',function(){
+		var sText = $('[name=select]').val();
+		var cText = $('[name=search]').val();
+		columns({
+			select:sText,
+			search:cText
+		});
+	});
 	// 全选
 	form.on('checkbox(allChoose)', function(data){
 		var child = $(data.elem).parents('table').find('.checklist');
@@ -126,9 +131,13 @@ layui.use(['jquery','form','laypage','layer'],function(){
 		}else{
 			layer.load(2);
 			$.post("/mosc/column/column_delete/", { checklist:checklist }, function(data){
-				list = list-checklist.length;
 				columns();
+				layer.msg(data.message);
 			});
 		};
 	});
 });
+function articleList(url,page){
+	window.location.href=url;
+	document.cookie = "columnPage="+page;
+};

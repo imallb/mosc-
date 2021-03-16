@@ -5,22 +5,23 @@ var PostModel = require('../../models/posts');
 // 文章编辑
 router.get('/', function(req, res, next){
 	var column = req.query.column;
-	console.log(column)
 	res.render('mosc/article_editor',{
 		column: column
 	});
 });
 // 文章编辑上传
 router.post('/', function(req, res, next){
+	var author = req.session.user;
 	var column = req.body.column;
 	var title  = req.body.title;
 	var key    = req.body.key;
 	var paper  = req.body.paper;
-	var content = req.body.content;
-	var read   = (req.body.read == undefined)?[]:req.body.read;
+	var content= req.body.content;
+	var read   = (req.body.read == undefined)?['off']:req.body.read;
 	
 	var data = {
 		column: column,
+		author: author,
 		title: title,
 		key: key,
 		paper: paper,
@@ -56,7 +57,7 @@ router.post('/:postId', function(req, res, next){
 	var key    = req.body.key;
 	var paper  = req.body.paper;
 	var content = req.body.content;
-	var read   = (req.body.read == undefined)?[]:req.body.read;
+	var read   = (req.body.read == undefined)?['off']:req.body.read;
 
 	var data = {
 		title: title,

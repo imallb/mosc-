@@ -87,6 +87,7 @@ app.use(function(req,res,next){
 // 添加模板必需的变量
 app.use(function (req, res, next) {
 	res.locals.user = req.session.user;
+	res.locals.pages = req.session.pages;
 	next();
 });
 

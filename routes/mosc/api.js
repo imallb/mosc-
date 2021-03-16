@@ -10,41 +10,23 @@ var config = require('config-lite');
 
 // 全部分页
 router.get('/column', function(req, res, next) {
-	var post = {};
 	var page =(req.query.page!=undefined)?new Number(req.query.page)-0:1;
 	var list = (req.query.limit!=undefined)?new Number(req.query.limit)-0:1;
 	var v =(page-1)*list;
-	
-	ColumnModel.getLimitArticle({},list,v)
+
+	var select = req.query.select;
+	var search = req.query.search;
+	var post = {};
+	if(req.session.user._id != 'admin') post['author._id'] = req.session.user._id;
+	if(search && search != '') post[select] = search;
+
+	ColumnModel.getLimitArticle(post,list,v)
 		.then(function(data){
-			post.posts = data;
-			res.json(post);
+			res.json({
+				posts:data
+			});
 		})
 		.catch(next);
-});
-
-// 批量删除用户
-router.post('/user_delete/', function(req, res, next){
-	var deletefile = require('../../middlewares/deletefile');
-	var checklist= req.body.checklist;
-
-	for(var i=0;i<checklist.length;i++){
-		UserModel.getUserByName(checklist[i])
-			.then(function(post){
-				// 用户文件夹
-				var dir=path.join(__dirname, '../../public/uploads/')+post._id;
-				var img=dir+'/images';
-				var file=dir+'/file';
-				var video=dir+'/video';
-				
-				deletefile(img);
-				deletefile(file);
-				deletefile(video);
-				deletefile(dir);
-				
-				UserModel.deleteUser(post._id);
-			}).catch(next);
-	};
 });
 
 // 缩略图和文件上传

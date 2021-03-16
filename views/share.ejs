@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+*{margin:0;padding:0;}
+html,body{height:100%;overflow:hidden;}
+a{text-decoration: none;}
+.share{overflow:hidden;height:100%;}
+.edui-default .edui-editor-bottomContainer{display:none;}
+.edui-default .edui-editor{-webkit-border-radius:0px !important;border-radius:0px !important;}
+.sharebtn{height:48px;overflow:hidden;}
+.sharebtn a{float:right;color:white;background:#5FB878;line-height:48px;padding:0 25px;}
+</style>
+</head>
+
+<body>
+<div class="share">
+    <script id="editor" type="text/plain" style="width:100%;border:none;"></script>
+    <textarea style="display:none;" name="message" id="message"></textarea>
+    <div class="sharebtn">
+        <a href="javascript:">分享</a>
+    </div>
+</div>
+
+<script src="/ueditor/ueditor.config.js"></script>
+<script src="/ueditor/ueditor.all.min.js"></script>
+<script src="/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script>
+//实例化编辑器
+//建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+var ue = UE.getEditor('editor',{
+    toolbars: [
+        ['source', 'fontfamily', 'fontsize', 'bold', 'forecolor', 'wordimage', 'inserttable', 'mergecells', 'simpleupload', 'insertcode',]
+    ]
+});
+ue.ready(function() {
+    ue.setHeight(document.documentElement.clientHeight - 80);
+});
+ue.addListener('selectionchange',function(){
+    var text = ue.getContent();
+    document.getElementById('message').value = text;
+});
+
+</script>
+</body>
+</html>

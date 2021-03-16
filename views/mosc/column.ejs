@@ -1,20 +1,24 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title></title>
-<link href="/layui/css/layui.css" rel="stylesheet" type="text/css">
-<link href="/layuiUse/css/main.css" rel="stylesheet" type="text/css">
-<script src="/layui/layui.js"></script>
-</head>
+<%- include('module/head') %>
 
 <body class="homebody">
+<link href="/layuiUse/css/main.css" rel="stylesheet" type="text/css">
 <!--explain-->
 <blockquote class="layui-elem-quote button">
-    <div class="layui-input-inline search">
-        <input type="text" value="" placeholder="请输入关键字" class="layui-input">
-        <i class="layui-icon">&#xe615;</i>
-    </div>
+	<form class="layui-form">
+		<div class="layui-input-inline select">
+			<select name="select" lay-verify="">
+				<option value="title">标题</option>
+				<% if( user._id == 'admin' ){ %>
+					<option value="author.name">作者</option>
+				<% } %>
+				<option value="read">状态</option>
+			</select>
+		</div> 
+		<div class="layui-input-inline search">
+			<input type="text" name="search" value="" placeholder="请输入关键字" class="layui-input">
+			<i class="layui-icon" id="search">&#xe615;</i>
+		</div>
+	</form>
     <a class="layui-btn layui-bg-blue" id="ceart_col" href='javascript:;'>添加栏目</a>
     <a class="layui-btn layui-btn-danger" id="deleted" href='javascript:;'>批量删除栏目</a>
 </blockquote>
@@ -25,10 +29,10 @@
 			<colgroup>
 			<col width="50">
 			<col>
-			<col width="10%">
-			<col width="10%">
-			<col width="10%">
-			<col width="12%">
+			<col width="100">
+			<col width="80">
+			<col width="150">
+			<col width="160">
 			<col>
 			</colgroup>
 			<thead>
@@ -45,13 +49,10 @@
 			</tbody>
 		</table>
 	</form>
-    <div id="demo1" list='<%= post.list %>' limit='<%= post.limit %>' page='<%= post.page %>'></div>
+    <div id="demo1" page="<%= post.page %>"></div>
 </div>
 <%- include('module/column_editor') %>
 
-<script>
-var user = "<%= user._id %>";
-</script>
 <script src="/layuiUse/js/column.js"></script>
 </body>
 </html>

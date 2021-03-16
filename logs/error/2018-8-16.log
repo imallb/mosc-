@@ -1,0 +1,24 @@
+ [ 2018-8-16 11:26:49 ] error: /mosc/article_list?id=5b74edc60c835319d021ce02
+ [ 2018-8-16 11:26:49 ] brower: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/66.0.3359.139 safari/537.36
+ [ 2018-8-16 11:26:49 ] err: TypeError: E:\莫尚成\mosc\views\mosc\article_list.ejs:88
+    86| 						<td><input type="checkbox" name="checklist[]" lay-skin="primary" lay-filter="checklist" class="checklist" value="<%= data._id %>"></td>
+    87| 						<td align="left"><%= data.title %></td>
+ >> 88| 						<td><%= (data.read[0]=='on')?'审核中':'已通过' %></td>
+    89| 						<td><%= data.created_at %></td>
+    90| 						<td>
+    91| 							<a class="layui-btn layui-btn-mini news_edit" href="/mosc/article_editor/<%= data._id %>"><i class="layui-icon">&#xe642;</i>编辑</a>
+
+Cannot read property '0' of undefined
+
+ [ 2018-8-16 11:30:23 ] error: /mosc/article_list?id=5b74edc60c835319d021ce02
+ [ 2018-8-16 11:30:23 ] brower: mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/66.0.3359.139 safari/537.36
+ [ 2018-8-16 11:30:23 ] err: TypeError: E:\莫尚成\mosc\views\mosc\article_list.ejs:88
+    86| 						<td><input type="checkbox" name="checklist[]" lay-skin="primary" lay-filter="checklist" class="checklist" value="<%= data._id %>"></td>
+    87| 						<td align="left"><%= data.title %></td>
+ >> 88| 						<td><%= (data.read[0]=='on')?'审核中':'已通过' %></td>
+    89| 						<td><%= data.created_at %></td>
+    90| 						<td>
+    91| 							<a class="layui-btn layui-btn-mini news_edit" href="/mosc/article_editor/<%= data._id %>"><i class="layui-icon">&#xe642;</i>编辑</a>
+
+Cannot read property '0' of undefined
+

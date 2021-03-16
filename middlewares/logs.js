@@ -62,7 +62,7 @@ module.exports = function(filename, record, status, times){
 				console.error(err);
 			}else{
 				fs.writeFileSync(fd,text);
-				fs.close(fd);
+				fs.closeSync(fd);
 			}
 		});
 	};

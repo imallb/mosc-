@@ -1,0 +1,104 @@
+ [ 2018-8-27 14:50:11 ] error: /index/login
+ [ 2018-8-27 14:50:11 ] brower: mozilla/5.0 (windows nt 6.1; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/68.0.3440.106 safari/537.36
+ [ 2018-8-27 14:50:11 ] err: ReferenceError: sha1 is not defined
+
+ [ 2018-8-27 14:52:13 ] error: /index/login
+ [ 2018-8-27 14:52:13 ] brower: mozilla/5.0 (windows nt 6.1; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/68.0.3440.106 safari/537.36
+ [ 2018-8-27 14:52:13 ] err: ReferenceError: sha1 is not defined
+
+ [ 2018-8-27 14:52:18 ] error: /index/login
+ [ 2018-8-27 14:52:18 ] brower: mozilla/5.0 (windows nt 6.1; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/68.0.3440.106 safari/537.36
+ [ 2018-8-27 14:52:18 ] err: ReferenceError: sha1 is not defined
+
+ [ 2018-8-27 14:52:19 ] error: /index/login
+ [ 2018-8-27 14:52:19 ] brower: mozilla/5.0 (windows nt 6.1; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/68.0.3440.106 safari/537.36
+ [ 2018-8-27 14:52:19 ] err: ReferenceError: sha1 is not defined
+
+ [ 2018-8-27 14:52:19 ] error: /index/login
+ [ 2018-8-27 14:52:19 ] brower: mozilla/5.0 (windows nt 6.1; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/68.0.3440.106 safari/537.36
+ [ 2018-8-27 14:52:19 ] err: ReferenceError: sha1 is not defined
+
+ [ 2018-8-27 14:52:19 ] error: /index/login
+ [ 2018-8-27 14:52:19 ] brower: mozilla/5.0 (windows nt 6.1; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/68.0.3440.106 safari/537.36
+ [ 2018-8-27 14:52:19 ] err: ReferenceError: sha1 is not defined
+
+ [ 2018-8-27 14:52:19 ] error: /index/login
+ [ 2018-8-27 14:52:19 ] brower: mozilla/5.0 (windows nt 6.1; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/68.0.3440.106 safari/537.36
+ [ 2018-8-27 14:52:19 ] err: ReferenceError: sha1 is not defined
+
+ [ 2018-8-27 14:52:20 ] error: /index/login
+ [ 2018-8-27 14:52:20 ] brower: mozilla/5.0 (windows nt 6.1; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/68.0.3440.106 safari/537.36
+ [ 2018-8-27 14:52:20 ] err: ReferenceError: sha1 is not defined
+
+ [ 2018-8-27 14:52:21 ] error: /index/login
+ [ 2018-8-27 14:52:21 ] brower: mozilla/5.0 (windows nt 6.1; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/68.0.3440.106 safari/537.36
+ [ 2018-8-27 14:52:21 ] err: ReferenceError: sha1 is not defined
+
+ [ 2018-8-27 14:53:10 ] error: /index/login
+ [ 2018-8-27 14:53:10 ] brower: mozilla/5.0 (windows nt 6.1; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/68.0.3440.106 safari/537.36
+ [ 2018-8-27 14:53:10 ] err: ReferenceError: sha1 is not defined
+
+ [ 2018-8-27 14:53:12 ] error: /index/login
+ [ 2018-8-27 14:53:12 ] brower: mozilla/5.0 (windows nt 6.1; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/68.0.3440.106 safari/537.36
+ [ 2018-8-27 14:53:12 ] err: ReferenceError: sha1 is not defined
+
+ [ 2018-8-27 14:55:45 ] error: /index/login
+ [ 2018-8-27 14:55:45 ] brower: mozilla/5.0 (windows nt 6.1; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/68.0.3440.106 safari/537.36
+ [ 2018-8-27 14:55:45 ] err: ReferenceError: sha1 is not defined
+
+ [ 2018-8-27 14:56:32 ] error: /index/login
+ [ 2018-8-27 14:56:32 ] brower: mozilla/5.0 (windows nt 6.1; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/68.0.3440.106 safari/537.36
+ [ 2018-8-27 14:56:32 ] err: ReferenceError: sha1 is not defined
+
+ [ 2018-8-27 14:57:46 ] error: /index/login
+ [ 2018-8-27 14:57:46 ] brower: mozilla/5.0 (windows nt 6.1; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/68.0.3440.106 safari/537.36
+ [ 2018-8-27 14:57:46 ] err: ReferenceError: sha1 is not defined
+
+ [ 2018-8-27 14:58:22 ] error: /index/login
+ [ 2018-8-27 14:58:22 ] brower: mozilla/5.0 (windows nt 6.1; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/68.0.3440.106 safari/537.36
+ [ 2018-8-27 14:58:22 ] err: ReferenceError: sha1 is not defined
+
+ [ 2018-8-27 15:34:18 ] error: /index/share
+ [ 2018-8-27 15:34:18 ] brower: mozilla/5.0 (windows nt 6.1; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/68.0.3440.106 safari/537.36
+ [ 2018-8-27 15:34:18 ] err: 404
+
+ [ 2018-8-27 15:34:18 ] error: /index/share
+ [ 2018-8-27 15:34:18 ] brower: mozilla/5.0 (windows nt 6.1; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/68.0.3440.106 safari/537.36
+ [ 2018-8-27 15:34:18 ] err: Error: Failed to lookup view "404" in views directory "E:\莫尚成\mosc\views"
+
+ [ 2018-8-27 16:22:39 ] error: /index/share
+ [ 2018-8-27 16:22:39 ] brower: mozilla/5.0 (windows nt 6.1; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/68.0.3440.106 safari/537.36
+ [ 2018-8-27 16:22:39 ] err: ReferenceError: E:\莫尚成\mosc\views\share.ejs:19
+    17| <body>
+    18| <div class="share">
+ >> 19|     <script id="editor" type="text/plain" style="width:100%;height:<% document.body.clientHeight - 60 %>px;border:none;"></script>
+    20|     <textarea style="display:none;" name="content"></textarea>
+    21|     <div class="sharebtn">
+    22|         <a href="javascript">分享</a>
+
+document is not defined
+
+ [ 2018-8-27 16:22:47 ] error: /index/share
+ [ 2018-8-27 16:22:47 ] brower: mozilla/5.0 (windows nt 6.1; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/68.0.3440.106 safari/537.36
+ [ 2018-8-27 16:22:47 ] err: ReferenceError: E:\莫尚成\mosc\views\share.ejs:19
+    17| <body>
+    18| <div class="share">
+ >> 19|     <script id="editor" type="text/plain" style="width:100%;height:<%- document.body.clientHeight - 60 %>px;border:none;"></script>
+    20|     <textarea style="display:none;" name="content"></textarea>
+    21|     <div class="sharebtn">
+    22|         <a href="javascript">分享</a>
+
+document is not defined
+
+ [ 2018-8-27 16:25:10 ] error: /index/share
+ [ 2018-8-27 16:25:10 ] brower: mozilla/5.0 (windows nt 6.1; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/68.0.3440.106 safari/537.36
+ [ 2018-8-27 16:25:10 ] err: ReferenceError: E:\莫尚成\mosc\views\share.ejs:19
+    17| <body>
+    18| <div class="share">
+ >> 19|     <script id="editor" type="text/plain" style="width:100%;height:<%= document.body.clientHeight - 60 %>px;border:none;"></script>
+    20|     <textarea style="display:none;" name="content"></textarea>
+    21|     <div class="sharebtn">
+    22|         <a href="javascript">分享</a>
+
+document is not defined
+

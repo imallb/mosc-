@@ -1,10 +1,4 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title></title>
-<link href="/layui/css/layui.css" rel="stylesheet" type="text/css">
-<script src="/layui/layui.js"></script>
+<%- include('module/head') %>
 <style>
 table.layui-table{
 	margin-bottom:15px;
@@ -14,7 +8,6 @@ table.layui-table thead th{
 	color:white;
 }
 </style>
-</head>
 
 <body style="padding:10px 20px 20px;">
 <table class="layui-table">
@@ -65,7 +58,7 @@ table.layui-table thead th{
 		</tr>
 	</tbody>
 </table>
-<form class="layui-form" action="/mosc/system" method="post">
+<form class="layui-form webtext" action="/mosc/system" method="post">
 	<table class="layui-table">
 		<colgroup>
 			<col width="20%">
@@ -117,13 +110,23 @@ table.layui-table thead th{
 			</tr>
 		</tbody>
 	</table>
-	<div class="layui-form-item" style="text-align: right;">
+	<% if(user._id == 'admin' ){ %>
+	<div class="layui-form-item tobtn" style="text-align: right;">
 		<div class="layui-input-block">
 			<input class="layui-btn" type="submit" value="立即提交">
 			<button type="reset" class="layui-btn layui-btn-primary">重置</button>
 		</div>
 	</div>
+	<% } %>
 </form>
-
+<script>
+layui.use('jquery',function(){
+	var $ = layui.jquery;
+	var _id = '<%= user._id %>';
+	if( _id!='admin' ){
+		$('.webtext').find('input,textarea').attr('readonly', true);
+	};
+})
+</script>
 </body>
 </html>

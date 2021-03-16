@@ -25,6 +25,7 @@ layui.use(['jquery'],function(){
 		url:"/mosc/home/allUser/",
 		dataType:"html",
 		success:function(data){
+			data = new Number(data)+1;
 			$('.allUser').html(data);
 		}
 	});
